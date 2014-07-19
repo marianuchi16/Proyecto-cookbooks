@@ -1,0 +1,41 @@
+unit Unit11;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, StdCtrls;
+
+type
+  TForm11 = class(TForm)
+    procedure Button11Click(Sender: TObject);
+    procedure Edit15Change(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form11: TForm11;
+
+implementation
+
+uses Unit3;
+
+{$R *.dfm}
+
+procedure TForm11.Button11Click(Sender: TObject);
+begin
+{form3.ADOQuery1.Close;
+form3.ADOQuery1.Parameters.ParamByName('par1').Value:= edit14.Text;
+form3.ADOQuery1.Open;}
+end;
+
+procedure TForm11.Edit15Change(Sender: TObject);
+begin
+form3.ADOQuery1.Close;
+form3.ADOQuery1.Open;
+end;
+
+end.

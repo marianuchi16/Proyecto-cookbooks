@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014/04/14 14:08:19.345.pas,C:\Users\Huertas\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Huertas\Documents\RAD Studio\Projects\proyecto\Unit1.pas</Transaction>
+    <Transaction>2014/04/14 14:08:19.345.dfm,C:\Users\Huertas\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\Huertas\Documents\RAD Studio\Projects\proyecto\Unit1.dfm</Transaction>
+    <Transaction>2014/04/14 14:08:22.892.dproj,C:\Users\Huertas\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\Huertas\Documents\RAD Studio\Projects\proyecto\Project1.dproj</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Unit1.pas"/>
+    <File Path="Unit1.dfm"/>
+    <File Path="Unit10.pas"/>
+    <File Path="Unit10.dfm"/>
+    <File Path="Unit11.pas"/>
+    <File Path="Unit11.dfm"/>
+    <File Path="Unit12.pas"/>
+    <File Path="Unit13.pas"/>
+    <File Path="Unit13.dfm"/>
+    <File Path="Unit2.pas"/>
+    <File Path="Unit2.dfm"/>
+    <File Path="Unit3.pas"/>
+    <File Path="Unit3.dfm"/>
+    <File Path="Unit4.pas"/>
+    <File Path="Unit4.dfm"/>
+    <File Path="Unit5.pas"/>
+    <File Path="Unit5.dfm"/>
+    <File Path="Unit6.pas"/>
+    <File Path="Unit6.dfm"/>
+    <File Path="Unit7.pas"/>
+    <File Path="Unit7.dfm"/>
+    <File Path="Unit8.pas"/>
+    <File Path="Unit8.dfm"/>
+    <File Path="Unit9.pas"/>
+    <File Path="Unit9.dfm"/>
+    <File Path="Unit14.pas"/>
+    <File Path="Unit14.dfm"/>
+    <File Path="Unit15.pas"/>
+    <File Path="Unit15.dfm"/>
+    <File Path="Unit16.pas"/>
+    <File Path="Unit16.dfm"/>
+    <File Path="Unit17.pas"/>
+    <File Path="Unit17.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>

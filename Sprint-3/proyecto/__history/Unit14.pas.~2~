@@ -1,0 +1,25 @@
+unit Unit14;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, QuickRpt, qrpBaseCtrls;
+
+type
+  TForm14 = class(TForm)
+    QRPQuickrep1: TQRPQuickrep;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form14: TForm14;
+
+implementation
+
+{$R *.dfm}
+
+end.

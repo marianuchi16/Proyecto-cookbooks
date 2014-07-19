@@ -1,0 +1,18 @@
+object Form13: TForm13
+  Left = 342
+  Top = 110
+  BorderIcons = [biSystemMenu]
+  Caption = 'Lista de Autores'
+  ClientHeight = 532
+  ClientWidth = 822
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -19
+  Font.Name = 'Times New Roman'
+  Font.Style = [fsBold]
+  OldCreateOrder = False
+  Position = poDesigned
+  PixelsPerInch = 96
+  TextHeight = 22
+end

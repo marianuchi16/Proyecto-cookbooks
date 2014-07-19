@@ -1,0 +1,95 @@
+unit Unit16;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ComCtrls;
+
+type
+  TForm16 = class(TForm)
+    Button3: TButton;
+    Label1: TLabel;
+    DateTimePicker1: TDateTimePicker;
+    DateTimePicker2: TDateTimePicker;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    procedure Button3Click(Sender: TObject);
+    procedure Label4Click(Sender: TObject);
+    procedure Label5Click(Sender: TObject);
+    procedure Label6Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form16: TForm16;
+
+implementation
+
+uses Unit11, Unit14, Unit15, Unit3, Unit17;
+
+{$R *.dfm}
+
+procedure TForm16.Button3Click(Sender: TObject);
+begin
+ if label4.visible then
+ begin
+    form3.ADOinformecliente.Close;
+    form3.ADOinformecliente.Parameters.ParamByName('par1').Value:= DateTimePicker1.Date;
+    form3.ADOinformecliente.Parameters.ParamByName('par2').Value:= DateTimePicker2.Date;
+    form3.ADOinformecliente.Open;
+    form14.QRPQuickrep1.Preview;
+ end
+ else
+ begin
+    form3.ADOQuery4.Close;
+    form3.ADOQuery4.Parameters.ParamByName('par1').Value:= DateTimePicker1.Date;
+    form3.ADOQuery4.Parameters.ParamByName('par2').Value:= DateTimePicker2.Date;
+    form3.ADOQuery4.Open;
+    FORM15.QRPQuickrep1.Preview;
+ end;
+ label2.Visible:= false;
+ label3.Visible:= false;
+ DateTimePicker1.Visible:= false;
+ DateTimePicker2.Visible:= false;
+ button3.Visible:= false;
+ label5.Visible:= true;
+ label6.Visible:= true;
+ label4.Visible:= true;
+end;
+
+procedure TForm16.Label4Click(Sender: TObject);
+begin
+ label2.Visible:= true;
+ label3.Visible:= true;
+ DateTimePicker1.Visible:= true;
+ DateTimePicker2.Visible:= true;
+ button3.Visible:= true;
+ label5.Visible:= false;
+ label6.Visible:= false;
+end;
+
+procedure TForm16.Label5Click(Sender: TObject);
+begin
+ label2.Visible:= true;
+ label3.Visible:= true;
+ DateTimePicker1.Visible:= true;
+ DateTimePicker2.Visible:= true;
+ button3.Visible:= true;
+ label4.Visible:= false;
+ label6.Visible:= false;
+end;
+
+procedure TForm16.Label6Click(Sender: TObject);
+begin
+  form3.ADOQuery5.Open;
+  form17.QRPQuickrep1.Preview;
+end;
+
+end.

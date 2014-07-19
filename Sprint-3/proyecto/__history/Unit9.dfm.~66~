@@ -1,0 +1,633 @@
+object Form9: TForm9
+  Left = 242
+  Top = 59
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Libros'
+  ClientHeight = 667
+  ClientWidth = 1001
+  Color = 14134444
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -19
+  Font.Name = 'Times New Roman'
+  Font.Style = [fsBold]
+  OldCreateOrder = False
+  Position = poDesigned
+  PixelsPerInch = 96
+  TextHeight = 22
+  object Label1: TLabel
+    Left = 8
+    Top = 267
+    Width = 71
+    Height = 22
+    Caption = 'Nombre:'
+    Visible = False
+  end
+  object Label17: TLabel
+    Left = 303
+    Top = 267
+    Width = 10
+    Height = 22
+    Caption = '*'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label18: TLabel
+    Left = 303
+    Top = 308
+    Width = 10
+    Height = 22
+    Caption = '*'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label2: TLabel
+    Left = 8
+    Top = 308
+    Width = 77
+    Height = 22
+    Caption = 'Editorial:'
+    Visible = False
+  end
+  object Label12: TLabel
+    Left = 8
+    Top = 637
+    Width = 177
+    Height = 22
+    Caption = 'Datos obligatorios (*)'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label3: TLabel
+    Left = 8
+    Top = 351
+    Width = 174
+    Height = 22
+    Caption = 'Cantidad de Paginas:'
+    Visible = False
+  end
+  object Label4: TLabel
+    Left = 8
+    Top = 387
+    Width = 62
+    Height = 22
+    Caption = 'Idioma:'
+    Visible = False
+  end
+  object Label5: TLabel
+    Left = 8
+    Top = 432
+    Width = 58
+    Height = 22
+    Caption = 'Precio:'
+    Visible = False
+  end
+  object Label6: TLabel
+    Left = 391
+    Top = 437
+    Width = 71
+    Height = 22
+    Caption = 'Nombre:'
+    Visible = False
+  end
+  object Label7: TLabel
+    Left = 336
+    Top = 260
+    Width = 102
+    Height = 22
+    Caption = 'Descripcion:'
+    Visible = False
+  end
+  object Label8: TLabel
+    Left = 632
+    Top = 437
+    Width = 72
+    Height = 22
+    Caption = 'Apellido:'
+    Visible = False
+  end
+  object Label9: TLabel
+    Left = 391
+    Top = 417
+    Width = 47
+    Height = 22
+    Caption = 'Autor'
+    Visible = False
+  end
+  object label30: TLabel
+    Left = 8
+    Top = 476
+    Width = 146
+    Height = 22
+    Caption = 'Fecha de Edicion:'
+    Visible = False
+  end
+  object Label10: TLabel
+    Left = 759
+    Top = 291
+    Width = 10
+    Height = 22
+    Caption = '*'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label11: TLabel
+    Left = 303
+    Top = 346
+    Width = 10
+    Height = 22
+    Caption = '*'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label13: TLabel
+    Left = 303
+    Top = 387
+    Width = 10
+    Height = 22
+    Caption = '*'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label14: TLabel
+    Left = 303
+    Top = 432
+    Width = 10
+    Height = 22
+    Caption = '*'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label15: TLabel
+    Left = 359
+    Top = 468
+    Width = 10
+    Height = 22
+    Caption = '*'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label16: TLabel
+    Left = 605
+    Top = 468
+    Width = 10
+    Height = 22
+    Caption = '*'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label19: TLabel
+    Left = 815
+    Top = 468
+    Width = 10
+    Height = 22
+    Caption = '*'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label20: TLabel
+    Left = 0
+    Top = 25
+    Width = 57
+    Height = 22
+    AutoSize = False
+    Caption = 'Buscar:'
+  end
+  object Image1: TImage
+    Left = 775
+    Top = 288
+    Width = 203
+    Height = 151
+    AutoSize = True
+    Visible = False
+  end
+  object Label21: TLabel
+    Left = 984
+    Top = 291
+    Width = 10
+    Height = 22
+    Caption = '*'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label22: TLabel
+    Left = 8
+    Top = 504
+    Width = 50
+    Height = 22
+    Caption = 'ISBN:'
+    Visible = False
+  end
+  object Label23: TLabel
+    Left = 303
+    Top = 504
+    Width = 10
+    Height = 22
+    Caption = '*'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label24: TLabel
+    Left = 391
+    Top = 522
+    Width = 114
+    Height = 22
+    Caption = 'Buscar Autor:'
+    Visible = False
+  end
+  object Label25: TLabel
+    Left = 115
+    Top = 536
+    Width = 147
+    Height = 22
+    Caption = '(10 a 13 numeros)'
+    Visible = False
+  end
+  object DBGrid1: TDBGrid
+    Left = 24
+    Top = 64
+    Width = 729
+    Height = 154
+    DataSource = Form3.DSLIBROS
+    Options = [dgTitles, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleHotTrack]
+    TabOrder = 0
+    TitleFont.Charset = ANSI_CHARSET
+    TitleFont.Color = clBlack
+    TitleFont.Height = -19
+    TitleFont.Name = 'Times New Roman'
+    TitleFont.Style = [fsBold]
+    OnCellClick = DBGrid1CellClick
+    OnTitleClick = DBGrid1TitleClick
+    Columns = <
+      item
+        Color = 14134444
+        Expanded = False
+        FieldName = 'Nombre'
+        Width = 437
+        Visible = True
+      end
+      item
+        Color = 14134444
+        Expanded = False
+        FieldName = 'Precio'
+        Width = 113
+        Visible = True
+      end
+      item
+        Color = 14134444
+        Expanded = False
+        FieldName = 'Editorial'
+        Width = 154
+        Visible = True
+      end>
+  end
+  object Button1: TButton
+    Left = 24
+    Top = 224
+    Width = 174
+    Height = 30
+    Caption = 'Agregar'
+    TabOrder = 1
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 292
+    Top = 224
+    Width = 188
+    Height = 30
+    Caption = 'Modificar'
+    Enabled = False
+    TabOrder = 2
+    OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 582
+    Top = 224
+    Width = 171
+    Height = 30
+    Caption = 'Eliminar'
+    Enabled = False
+    TabOrder = 3
+    OnClick = Button3Click
+  end
+  object Edit1: TEdit
+    Left = 89
+    Top = 260
+    Width = 208
+    Height = 30
+    CharCase = ecUpperCase
+    TabOrder = 4
+    Visible = False
+    OnKeyPress = Edit1KeyPress
+  end
+  object Edit2: TEdit
+    Left = 91
+    Top = 307
+    Width = 208
+    Height = 30
+    CharCase = ecUpperCase
+    TabOrder = 5
+    Visible = False
+  end
+  object Button5: TButton
+    Left = 8
+    Top = 573
+    Width = 165
+    Height = 33
+    Caption = 'Cancelar'
+    TabOrder = 6
+    Visible = False
+    OnClick = Button5Click
+  end
+  object Button4: TButton
+    Left = 179
+    Top = 573
+    Width = 153
+    Height = 33
+    Caption = 'Aceptar'
+    TabOrder = 7
+    Visible = False
+    OnClick = Button4Click
+  end
+  object Edit3: TEdit
+    Left = 184
+    Top = 343
+    Width = 113
+    Height = 30
+    CharCase = ecUpperCase
+    NumbersOnly = True
+    TabOrder = 8
+    Visible = False
+  end
+  object Edit4: TEdit
+    Left = 89
+    Top = 388
+    Width = 208
+    Height = 30
+    CharCase = ecUpperCase
+    TabOrder = 9
+    Visible = False
+    OnKeyPress = Edit4KeyPress
+  end
+  object Edit5: TEdit
+    Left = 89
+    Top = 424
+    Width = 208
+    Height = 30
+    CharCase = ecUpperCase
+    MaxLength = 8
+    TabOrder = 10
+    Visible = False
+    OnKeyPress = Edit5KeyPress
+  end
+  object Edit6: TEdit
+    Left = 391
+    Top = 465
+    Width = 208
+    Height = 30
+    CharCase = ecUpperCase
+    TabOrder = 11
+    Visible = False
+  end
+  object Edit8: TEdit
+    Left = 632
+    Top = 465
+    Width = 177
+    Height = 30
+    CharCase = ecUpperCase
+    TabOrder = 12
+    Visible = False
+  end
+  object DateTimePicker1: TDateTimePicker
+    Left = 167
+    Top = 460
+    Width = 186
+    Height = 30
+    Date = 41800.719488553240000000
+    Time = 41800.719488553240000000
+    TabOrder = 13
+    Visible = False
+  end
+  object Memo1: TMemo
+    Left = 335
+    Top = 288
+    Width = 418
+    Height = 128
+    CharCase = ecUpperCase
+    TabOrder = 14
+    Visible = False
+  end
+  object Edit7: TEdit
+    Left = 55
+    Top = 17
+    Width = 466
+    Height = 30
+    CharCase = ecUpperCase
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clSilver
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 15
+    Text = 'INGRESE LIBRO'
+    OnChange = Edit7Change
+    OnClick = Edit7Click
+  end
+  object Button7: TButton
+    Left = 527
+    Top = 17
+    Width = 129
+    Height = 30
+    Caption = 'Buscar'
+    Enabled = False
+    TabOrder = 16
+    OnClick = Button7Click
+  end
+  object Button8: TButton
+    Left = 695
+    Top = 17
+    Width = 201
+    Height = 30
+    Caption = 'Ver lista completa'
+    TabOrder = 17
+    OnClick = Button8Click
+  end
+  object Button6: TButton
+    Left = 831
+    Top = 468
+    Width = 147
+    Height = 25
+    Caption = 'Cargar imagen'
+    TabOrder = 18
+    Visible = False
+    OnClick = Button6Click
+  end
+  object Edit9: TEdit
+    Left = 89
+    Top = 504
+    Width = 208
+    Height = 30
+    CharCase = ecUpperCase
+    MaxLength = 13
+    NumbersOnly = True
+    TabOrder = 19
+    Visible = False
+  end
+  object DBGrid3: TDBGrid
+    Left = 24
+    Top = 64
+    Width = 729
+    Height = 154
+    DataSource = Form3.DataSource3
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    TabOrder = 20
+    TitleFont.Charset = ANSI_CHARSET
+    TitleFont.Color = clBlack
+    TitleFont.Height = -19
+    TitleFont.Name = 'Times New Roman'
+    TitleFont.Style = [fsBold]
+    Visible = False
+    Columns = <
+      item
+        Color = 14134444
+        Expanded = False
+        FieldName = 'Nombre'
+        Width = 405
+        Visible = True
+      end
+      item
+        Color = 14134444
+        Expanded = False
+        FieldName = 'Precio'
+        Width = 93
+        Visible = True
+      end
+      item
+        Color = 14134444
+        Expanded = False
+        FieldName = 'ISBN'
+        Width = 129
+        Visible = True
+      end
+      item
+        Color = 14134444
+        Expanded = False
+        FieldName = 'Editorial'
+        Width = 212
+        Visible = True
+      end
+      item
+        Color = 14134444
+        Expanded = False
+        FieldName = 'Idioma'
+        Width = 200
+        Visible = True
+      end>
+  end
+  object DBGrid2: TDBGrid
+    Left = 391
+    Top = 550
+    Width = 505
+    Height = 111
+    DataSource = Form3.DataSource2
+    TabOrder = 21
+    TitleFont.Charset = ANSI_CHARSET
+    TitleFont.Color = clBlack
+    TitleFont.Height = -19
+    TitleFont.Name = 'Times New Roman'
+    TitleFont.Style = [fsBold]
+    Visible = False
+    OnCellClick = DBGrid2CellClick
+    Columns = <
+      item
+        Color = 14134444
+        Expanded = False
+        FieldName = 'Nombre'
+        Width = 250
+        Visible = True
+      end
+      item
+        Color = 14134444
+        Expanded = False
+        FieldName = 'Apellido'
+        Width = 250
+        Visible = True
+      end>
+  end
+  object Edit10: TEdit
+    Left = 525
+    Top = 514
+    Width = 371
+    Height = 30
+    TabOrder = 22
+    Visible = False
+    OnChange = Edit10Change
+  end
+  object OpenPictureDialog1: TOpenPictureDialog
+    Filter = '*.bmp|*.bmp|Bitmaps (*.bmp)|*.bmp'
+    Left = 328
+    Top = 336
+  end
+end

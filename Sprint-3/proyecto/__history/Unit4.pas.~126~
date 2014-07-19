@@ -1,0 +1,941 @@
+unit Unit4;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DBCtrls, StdCtrls, ExtCtrls, Grids, DBGrids;
+
+type
+  TForm4 = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    Edit7: TEdit;
+    Edit8: TEdit;
+    Button1: TButton;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label21: TLabel;
+    Edit11: TEdit;
+    Label22: TLabel;
+    Label23: TLabel;
+    Label24: TLabel;
+    Edit12: TEdit;
+    Edit13: TEdit;
+    Button2: TButton;
+    Label25: TLabel;
+    Label26: TLabel;
+    Label9: TLabel;
+    Edit9: TEdit;
+    Label12: TLabel;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Label10: TLabel;
+    Edit10: TEdit;
+    DBGrid1: TDBGrid;
+    Button7: TButton;
+    Button8: TButton;
+    Button9: TButton;
+    Button10: TButton;
+    Label11: TLabel;
+    Edit14: TEdit;
+    Button11: TButton;
+    DBGrid2: TDBGrid;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Edit12KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit13KeyPress(Sender: TObject; var Key: Char);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit2KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit8KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit11KeyPress(Sender: TObject; var Key: Char);
+    procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure Button9Click(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
+    procedure Button10Click(Sender: TObject);
+    procedure Edit14Click(Sender: TObject);
+    procedure Edit14Change(Sender: TObject);
+    procedure DBGrid2CellClick(Column: TColumn);
+  private
+  usuario: integer;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form4: TForm4;
+
+implementation
+
+uses Unit3, Unit1, Unit13;
+
+{$R *.dfm}
+
+procedure TForm4.Button10Click(Sender: TObject);
+begin
+DBGrid2.Visible:= false;
+edit14.Text:='INGRESE CLIENTE';
+EDIT14.Font.Color:= clsilver;
+end;
+
+procedure TForm4.Button1Click(Sender: TObject);
+begin
+if (not(edit1.Text = '') and not(edit2.Text = '') and not(edit3.Text = '')
+and not(edit4.Text = '') and not(edit5.Text = '') and not(edit8.Text = '')
+and not(edit9.Text = '') and not(edit11.Text = '')and
+not(edit12.Text = '')and not(edit13.Text = '') and not(edit10.Text = ''))then
+begin
+   if (edit13.Text = edit10.Text) then
+   begin
+           if (length (edit9.Text) = 8) then
+           begin
+               form3.ADOCLIENTE.Open;
+               form3.ADOUSUARIO.Open;
+               form3.ADOUSUARIO.Append;
+               form3.ADOCLIENTE.Append;
+               form3.ADOCLIENTE.fieldbyname('Nombre').asString := Edit1.Text;
+               form3.ADOCLIENTE.fieldbyname('Apellido').asSTring := Edit2.Text;
+               form3.ADOCLIENTE.fieldbyname('Codigo_Postal').asInteger := strtoint(Edit3.Text);
+               form3.ADOCLIENTE.fieldbyname('Calle').asString := Edit4.Text;
+               form3.ADOCLIENTE.fieldbyname('Numero').asInteger := strtoint(Edit5.Text);
+               if edit6.Text = '' then
+                form3.ADOCLIENTE.fieldbyname('Piso').asstring := '0'
+               else
+                 form3.ADOCLIENTE.fieldbyname('Piso').asstring := (Edit6.Text);
+               if edit7.Text = '' then
+                 form3.ADOCLIENTE.fieldbyname('Depto').asstring := '0'
+               else
+                 form3.ADOCLIENTE.fieldbyname('Depto').asstring := (Edit7.Text);
+               form3.ADOCLIENTE.fieldbyname('Localidad').asString := Edit8.Text;
+               form3.ADOCLIENTE.fieldbyname('Provincia').asString := Edit11.Text;
+               form3.ADOCLIENTE.fieldbyname('Tarjeta').asInteger := strtoint(Edit9.Text);
+               form3.ADOCLIENTE.fieldbyname('Fecha_de_alta').AsDateTime := date();
+               form3.ADOUSUARIO.fieldbyname('Usuario').Asstring := edit12.Text;
+               form3.ADOUSUARIO.fieldbyname('Contraseña').Asstring := edit13.Text;
+               form3.ADOCLIENTE.POST;
+               form3.ADOUSUARIO.FieldByName('Id_Cliente').AsInteger:= form3.ADOCLIENTE.FieldByName('Id_Cliente').AsInteger;
+               form3.ADOUSUARIO.Post;
+               messagedlg('Se ha registrado exitosamente!!',mtinformation,[mbok],0);
+               edit1.Text:= '';
+               edit2.Text:= '';
+               edit3.Text:= '';
+               edit4.Text:= '';
+               edit5.Text:= '';
+               edit6.Text:= '';
+               edit7.Text:= '';
+               edit8.Text:= '';
+               edit9.Text:= '';
+               edit11.Text:= '';
+               edit12.Text:= '';
+               edit13.Text:= '';
+               form3.ADOCLIENTE.Close;
+               form3.ADOCLIENTE.Open;
+               form3.ADOUSUARIO.Close;
+               form3.ADOUSUARIO.Open;
+               form1.edit1.Visible:= false;
+               form1.edit2.Visible:= false;
+               form1.label6.Visible:= false;
+               form1.label7.Visible:= false;
+               form1.button1.Visible:= false;
+               form1.label2.Visible:= false;
+               form1.label3.Visible:= false;
+               form1.button2.Visible:= false;
+               form1.label4.Visible:= true;
+               form1.label5.Visible:= true;
+               if form4.Caption='CLIENTES' then
+                begin
+                DBGrid1.Refresh;
+                form4.DBGrid1.Visible:= true;
+                form4.Button7.Visible:= true;
+                form4.Button8.Visible:= true;
+                form4.Button9.Visible:= true;
+                form4.Button10.Visible:= true;
+                form4.Button1.Visible:= false;
+                form4.Button2.Visible:= false;
+                form4.Button6.Visible:= false;
+                form4.Edit1.Visible:= false;
+                form4.Edit2.Visible:= false;
+                form4.Edit3.Visible:= false;
+                form4.Edit4.Visible:= false;
+                form4.Edit5.Visible:= false;
+                form4.Edit6.Visible:= false;
+                form4.Edit7.Visible:= false;
+                form4.Edit8.Visible:= false;
+                form4.Edit9.Visible:= false;
+                form4.Edit10.Visible:= false;
+                form4.Edit11.Visible:= false;
+                form4.Edit12.Visible:= false;
+                form4.Edit13.Visible:= false;
+                form4.Label1.Visible:= false;
+                form4.Label2.Visible:= false;
+                form4.Label3.Visible:= false;
+                form4.Label4.Visible:= false;
+                form4.Label5.Visible:= false;
+                form4.Label6.Visible:= false;
+                form4.Label7.Visible:= false;
+                form4.Label8.Visible:= false;
+                form4.Label9.Visible:= false;
+                form4.Label10.Visible:= false;
+                form4.Label12.Visible:= false;
+                form4.Label13.Visible:= false;
+                form4.Label14.Visible:= false;
+                form4.Label15.Visible:= false;
+                form4.Label16.Visible:= false;
+                form4.Label17.Visible:= false;
+                form4.Label18.Visible:= false;
+                form4.Label19.Visible:= false;
+                form4.Label21.Visible:= false;
+                form4.Label22.Visible:= false;
+                form4.Label23.Visible:= false;
+                form4.Label24.Visible:= false;
+                form4.Label25.Visible:= false;
+                form4.Label26.Visible:= false;
+                form4.label11.Visible:= true;
+                form4.edit14.Visible:= true;
+                form4.button11.Visible:= true;
+               end;
+           end
+           else
+             messagedlg('Ingrese nuevamente numero de tarjeta(8 digitos)!!',mtinformation,[mbok],0);
+   end
+   else
+   begin
+      messagedlg('Las contraseñas son diferentes!!',mtinformation,[mbok],0);
+      edit13.Text:='';
+      edit10.Text:='';
+   end;
+end
+else
+ messagedlg('Ingrese los datos obligatorios!!',mtinformation,[mbok],0);
+ {if form4.Caption='Clientes' then
+ begin
+      DBGrid1.Refresh;
+      form4.DBGrid1.Visible:= true;
+      form4.Button7.Visible:= true;
+      form4.Button8.Visible:= true;
+      form4.Button9.Visible:= true;
+      form4.Button10.Visible:= true;
+      form4.Button1.Visible:= false;
+      form4.Button2.Visible:= false;
+      form4.Button6.Visible:= false;
+      form4.Edit1.Visible:= false;
+      form4.Edit2.Visible:= false;
+      form4.Edit3.Visible:= false;
+      form4.Edit4.Visible:= false;
+      form4.Edit5.Visible:= false;
+      form4.Edit6.Visible:= false;
+      form4.Edit7.Visible:= false;
+      form4.Edit8.Visible:= false;
+      form4.Edit9.Visible:= false;
+      form4.Edit10.Visible:= false;
+      form4.Edit11.Visible:= false;
+      form4.Edit12.Visible:= false;
+      form4.Edit13.Visible:= false;
+      form4.Label1.Visible:= false;
+      form4.Label2.Visible:= false;
+      form4.Label3.Visible:= false;
+      form4.Label4.Visible:= false;
+      form4.Label5.Visible:= false;
+      form4.Label6.Visible:= false;
+      form4.Label7.Visible:= false;
+      form4.Label8.Visible:= false;
+      form4.Label9.Visible:= false;
+      form4.Label10.Visible:= false;
+      form4.Label12.Visible:= false;
+      form4.Label13.Visible:= false;
+      form4.Label14.Visible:= false;
+      form4.Label15.Visible:= false;
+      form4.Label16.Visible:= false;
+      form4.Label17.Visible:= false;
+      form4.Label18.Visible:= false;
+      form4.Label19.Visible:= false;
+      form4.Label21.Visible:= false;
+      form4.Label22.Visible:= false;
+      form4.Label23.Visible:= false;
+      form4.Label24.Visible:= false;
+      form4.Label25.Visible:= false;
+      form4.Label26.Visible:= false;
+      form4.label11.Visible:= true;
+      form4.label20.Visible:= true;
+      form4.edit14.Visible:= true;
+      form4.edit15.Visible:= true;
+      form4.button11.Visible:= true;
+ end;     }
+end;
+
+procedure TForm4.Button2Click(Sender: TObject);
+begin
+if not(edit12.Text = '') then
+begin
+    form3.ADOUSUARIO.Open;
+    if(form3.ADOUSUARIO.locate('Usuario',edit12.Text,[])) then
+    begin
+       messagedlg('Usuario no disponible!!',mtinformation,[mbok],0);
+       edit12.Text:='';
+    end
+    else
+       messagedlg('Usuario disponible!!',mtinformation,[mbok],0);
+    form3.ADOUSUARIO.Close;
+    end
+else
+   messagedlg('Ingrese un usuario!!',mtinformation,[mbok],0);
+{if form4.Caption = 'Clientes' then
+begin
+      form4.DBGrid1.Visible:= true;
+      form4.Button7.Visible:= true;
+      form4.Button8.Visible:= true;
+      form4.Button9.Visible:= true;
+      form4.Button10.Visible:= true;
+      form4.Button1.Visible:= false;
+      form4.Button2.Visible:= false;
+      form4.Button6.Visible:= false;
+      form4.Edit1.Visible:= false;
+      form4.Edit2.Visible:= false;
+      form4.Edit3.Visible:= false;
+      form4.Edit4.Visible:= false;
+      form4.Edit5.Visible:= false;
+      form4.Edit6.Visible:= false;
+      form4.Edit7.Visible:= false;
+      form4.Edit8.Visible:= false;
+      form4.Edit9.Visible:= false;
+      form4.Edit10.Visible:= false;
+      form4.Edit11.Visible:= false;
+      form4.Edit12.Visible:= false;
+      form4.Edit13.Visible:= false;
+      form4.Label1.Visible:= false;
+      form4.Label2.Visible:= false;
+      form4.Label3.Visible:= false;
+      form4.Label4.Visible:= false;
+      form4.Label5.Visible:= false;
+      form4.Label6.Visible:= false;
+      form4.Label7.Visible:= false;
+      form4.Label8.Visible:= false;
+      form4.Label9.Visible:= false;
+      form4.Label10.Visible:= false;
+      form4.Label12.Visible:= false;
+      form4.Label13.Visible:= false;
+      form4.Label14.Visible:= false;
+      form4.Label15.Visible:= false;
+      form4.Label16.Visible:= false;
+      form4.Label17.Visible:= false;
+      form4.Label18.Visible:= false;
+      form4.Label19.Visible:= false;
+      form4.Label21.Visible:= false;
+      form4.Label22.Visible:= false;
+      form4.Label23.Visible:= false;
+      form4.Label24.Visible:= false;
+      form4.Label25.Visible:= false;
+      form4.Label26.Visible:= false;
+end; }
+end;
+
+procedure TForm4.Button3Click(Sender: TObject);
+begin
+if (not(edit1.Text = '') and not(edit2.Text = '') and not(edit3.Text = '')
+and not(edit4.Text = '') and not(edit5.Text = '') and not(edit8.Text = '')
+and not(edit9.Text = '') and not(edit11.Text = '')) and
+not(edit12.Text = '')and not(edit13.Text = '') and not(edit10.Text = '')then
+begin
+   if (edit13.Text = edit10.Text) then
+   begin
+         if (length (edit9.Text) = 8) then
+         begin
+                form3.ADOCLIENTE.Edit;
+                FORM3.ADOUSUARIO.Open;
+                usuario:= form3.ADOCLIENTE.FieldByName('Id_Cliente').AsInteger;
+                form3.ADOUSUARIO.Locate('Id_cliente',usuario,[]);
+                form3.ADOUSUARIO.Edit;
+                form3.ADOCLIENTE.fieldbyname('Nombre').asString := Edit1.Text;
+                form3.ADOCLIENTE.fieldbyname('Apellido').asSTring := Edit2.Text;
+                form3.ADOCLIENTE.fieldbyname('Codigo_Postal').asInteger := strtoint(Edit3.Text);
+                form3.ADOCLIENTE.fieldbyname('Calle').asString := Edit4.Text;
+                form3.ADOCLIENTE.fieldbyname('Numero').asInteger := strtoint(Edit5.Text);
+                if edit6.Text = '' then
+                  form3.ADOCLIENTE.fieldbyname('Piso').asstring := '0'
+                else
+                  form3.ADOCLIENTE.fieldbyname('Piso').asstring := (Edit6.Text);
+                if edit7.Text = '' then
+                  form3.ADOCLIENTE.fieldbyname('Depto').asstring := '0'
+                else
+                  form3.ADOCLIENTE.fieldbyname('Depto').asstring := (Edit7.Text);
+                form3.ADOCLIENTE.fieldbyname('Localidad').asString := Edit8.Text;
+                form3.ADOCLIENTE.fieldbyname('Provincia').asString := Edit11.Text;
+                form3.ADOCLIENTE.fieldbyname('Tarjeta').AsLargeInt := strtoint(Edit9.Text);
+                form3.ADOUSUARIO.FieldByName('Usuario').AsString:= edit12.Text;
+                form3.ADOUSUARIO.FieldByName('Contraseña').AsString:= edit13.Text;
+                form3.ADOUSUARIO.Post;
+                form3.ADOCLIENTE.Post;
+                if form4.Caption = 'CLIENTES' then
+                    messagedlg('Se han modificado los datos exitosamente!!',mtinformation,[mbok],0)
+                else
+                    messagedlg('Se han modificado sus datos exitosamente!!',mtinformation,[mbok],0);
+         end
+            else
+           messagedlg('Ingrese nuevamente numero de tarjeta(8 digitos)!!',mtinformation,[mbok],0);
+   end
+   else
+        messagedlg('Las contraseñas son diferentes!!',mtinformation,[mbok],0);
+end
+else
+ messagedlg('Ingrese los datos obligatorios!!',mtinformation,[mbok],0);
+if form4.Caption = 'CLIENTES' then
+begin
+      button7.Enabled:= true;
+
+      form4.DBGrid1.Visible:= true;
+      form4.Button7.Visible:= true;
+      form4.Button8.Visible:= true;
+      form4.Button9.Visible:= true;
+      form4.Button10.Visible:= true;
+      form4.Button1.Visible:= false;
+      form4.Button2.Visible:= false;
+      FORM4.Button3.Visible:= FALSE;
+      form4.Button6.Visible:= false;
+      form4.Edit1.Visible:= false;
+      form4.Edit2.Visible:= false;
+      form4.Edit3.Visible:= false;
+      form4.Edit4.Visible:= false;
+      form4.Edit5.Visible:= false;
+      form4.Edit6.Visible:= false;
+      form4.Edit7.Visible:= false;
+      form4.Edit8.Visible:= false;
+      form4.Edit9.Visible:= false;
+      form4.Edit10.Visible:= false;
+      form4.Edit11.Visible:= false;
+      form4.Edit12.Visible:= false;
+      form4.Edit13.Visible:= false;
+      form4.Label1.Visible:= false;
+      form4.Label2.Visible:= false;
+      form4.Label3.Visible:= false;
+      form4.Label4.Visible:= false;
+      form4.Label5.Visible:= false;
+      form4.Label6.Visible:= false;
+      form4.Label7.Visible:= false;
+      form4.Label8.Visible:= false;
+      form4.Label9.Visible:= false;
+      form4.Label10.Visible:= false;
+      form4.Label12.Visible:= false;
+      form4.Label13.Visible:= false;
+      form4.Label14.Visible:= false;
+      form4.Label15.Visible:= false;
+      form4.Label16.Visible:= false;
+      form4.Label17.Visible:= false;
+      form4.Label18.Visible:= false;
+      form4.Label19.Visible:= false;
+      form4.Label21.Visible:= false;
+      form4.Label22.Visible:= false;
+      form4.Label23.Visible:= false;
+      form4.Label24.Visible:= false;
+      form4.Label25.Visible:= false;
+      form4.Label26.Visible:= false;
+      label11.Visible:= true;
+      edit14.Visible:= true;
+      button11.Visible:= true;
+      button8.Enabled:= false;
+      button9.Enabled:= false;
+      edit1.Text:= '';
+      edit2.Text:= '';
+      edit3.Text:= '';
+      edit4.Text:= '';
+      edit5.Text:= '';
+      edit6.Text:= '';
+      edit7.Text:= '';
+      edit8.Text:= '';
+      edit9.Text:= '';
+      Edit10.Text:= '';
+      edit11.Text:= '';
+      edit12.Text:= '';
+      edit13.Text:= '';
+end;
+if not(form4.Caption = 'CLIENTES') then
+  form4.Close;
+end;
+
+procedure TForm4.Button4Click(Sender: TObject);
+begin
+  FORM13.ok:= FALSE;
+  form13.Label1.Caption:= 'Esta seguro de eliminar su cuenta?';
+  form13.ShowModal;
+  if FORM13.OK then
+   begin
+    form3.ADOUSUARIO.edit;
+    form3.ADOUSUARIO.FieldByName('Eliminado').AsBoolean:= true;
+    form3.ADOUSUARIO.Post;
+    form3.ADOusuario.Close;
+    form3.ADOusuario.Filter:= 'Eliminado = false';
+    form3.ADOusuario.Filtered:= true;
+    form3.ADOusuario.Open;
+    form3.ADOCLIENTE.edit;
+    form3.ADOCLIENTE.FieldByName('Eliminado').AsBoolean:= true;
+    form3.ADOCLIENTE.Post;
+    form3.ADOcliente.Close;
+    form3.ADOcliente.Filter:= 'Eliminado = false';
+    form3.ADOcliente.Filtered:= true;
+    form3.ADOcliente.Open;
+    form4.button7.Enabled:= true;
+    button8.Enabled:= false;
+    button9.Enabled:= false;
+    messagedlg('Su cuenta se elimino correctamente',mtinformation,[mbok],0);
+    edit1.Text:= '';
+    edit2.Text:= '';
+    edit3.Text:= '';
+    edit4.Text:= '';
+    edit5.Text:= '';
+    edit6.Text:= '';
+    edit7.Text:= '';
+    edit8.Text:= '';
+    edit9.Text:= '';
+    edit11.Text:= '';
+    edit12.Text:= '';
+    edit13.Text:= '';
+    form3.ADOCLIENTE.Close;
+    form3.ADOCLIENTE.Open;
+    form3.ADOUSUARIO.Close;
+    form3.ADOUSUARIO.Open;
+    form1.edit1.Visible:= false;
+    form1.edit2.Visible:= false;
+    form1.label6.Visible:= false;
+    form1.label7.Visible:= false;
+    form1.button1.Visible:= false;
+    form1.label2.Visible:= false;
+    form1.label3.Visible:= false;
+    form1.button2.Visible:= false;
+    form1.label4.Visible:= true;
+    form1.label5.Visible:= true;
+    form1.edit1.Visible:= true;
+    form1.edit2.Visible:= true;
+    form1.label6.Visible:= true;
+    form1.label7.Visible:= true;
+    form1.button1.Visible:= true;
+    form1.label2.Visible:= true;
+    form1.label3.Visible:= true;
+    form1.button2.Visible:= true;
+    form1.label4.Visible:= false;
+    form1.label5.Visible:= false;
+    form1.Edit1.Text:= '';
+    form1.Edit2.Text:= '';
+    form4.Close;
+   end;
+end;
+
+procedure TForm4.Button6Click(Sender: TObject);
+begin
+       form3.ADOCLIENTE.Cancel;
+       edit1.Text:= '';
+       edit2.Text:= '';
+       edit3.Text:= '';
+       edit4.Text:= '';
+       edit5.Text:= '';
+       edit6.Text:= '';
+       edit7.Text:= '';
+       edit8.Text:= '';
+       edit9.Text:= '';
+       Edit10.Text:= '';
+       edit11.Text:= '';
+       edit12.Text:= '';
+       edit13.Text:= '';
+       form3.ADOCLIENTE.Close;
+       form3.ADOCLIENTE.Open;
+       form3.ADOUSUARIO.Close;
+       form3.ADOUSUARIO.Open;
+       form4.button3.visible:= false;
+       form4.button4.visible:= false;
+       form4.button5.visible:= false;
+       if not(form4.Caption = 'CLIENTES') then
+          form4.Close;
+       if NOT(form4.Caption = 'REGISTRARSE') then
+         form4.button6.visible:= false;
+       if form4.Caption = 'CLIENTES' then
+          begin
+            form4.DBGrid1.Visible:= true;
+            form4.Button7.Visible:= true;
+            form4.Button8.Visible:= true;
+            form4.Button9.Visible:= true;
+            form4.Button10.Visible:= true;
+            form4.Button1.Visible:= false;
+            form4.Button2.Visible:= false;
+            form4.Button6.Visible:= false;
+            form4.Edit1.Visible:= false;
+            form4.Edit2.Visible:= false;
+            form4.Edit3.Visible:= false;
+            form4.Edit4.Visible:= false;
+            form4.Edit5.Visible:= false;
+            form4.Edit6.Visible:= false;
+            form4.Edit7.Visible:= false;
+            form4.Edit8.Visible:= false;
+            form4.Edit9.Visible:= false;
+            form4.Edit10.Visible:= false;
+            form4.Edit11.Visible:= false;
+            form4.Edit12.Visible:= false;
+            form4.Edit13.Visible:= false;
+            form4.Label1.Visible:= false;
+            form4.Label2.Visible:= false;
+            form4.Label3.Visible:= false;
+            form4.Label4.Visible:= false;
+            form4.Label5.Visible:= false;
+            form4.Label6.Visible:= false;
+            form4.Label7.Visible:= false;
+            form4.Label8.Visible:= false;
+            form4.Label9.Visible:= false;
+            form4.Label10.Visible:= false;
+            form4.Label12.Visible:= false;
+            form4.Label13.Visible:= false;
+            form4.Label14.Visible:= false;
+            form4.Label15.Visible:= false;
+            form4.Label16.Visible:= false;
+            form4.Label17.Visible:= false;
+            form4.Label18.Visible:= false;
+            form4.Label19.Visible:= false;
+            form4.Label21.Visible:= false;
+            form4.Label22.Visible:= false;
+            form4.Label23.Visible:= false;
+            form4.Label24.Visible:= false;
+            form4.Label25.Visible:= false;
+            form4.Label26.Visible:= false;
+            button8.Enabled:= false;
+            button9.Enabled:= false;
+            form4.label11.Visible:= true;
+            form4.edit14.Visible:= true;
+            form4.button11.Visible:= true;
+          end;
+end;
+
+procedure TForm4.Button7Click(Sender: TObject);
+begin
+      form4.DBGrid1.Visible:= false;
+      form4.Button7.Visible:= false;
+      form4.Button8.Visible:= false;
+      form4.Button9.Visible:= false;
+      form4.Button10.Visible:= false;
+      form4.Button1.Visible:= true;
+      form4.Button2.Visible:= true;
+      form4.Button6.Visible:= true;
+      form4.label11.Visible:= false;
+      form4.edit14.Visible:= false;
+      form4.button11.Visible:= false;
+      form4.Edit1.Visible:= true;
+      form4.Edit2.Visible:= true;
+      form4.Edit3.Visible:= true;
+      form4.Edit4.Visible:= true;
+      form4.Edit5.Visible:= true;
+      form4.Edit6.Visible:= true;
+      form4.Edit7.Visible:= true;
+      form4.Edit8.Visible:= true;
+      form4.Edit9.Visible:= true;
+      form4.Edit10.Visible:= true;
+      form4.Edit11.Visible:= true;
+      form4.Edit12.Visible:= true;
+      form4.Edit13.Visible:= true;
+      form4.Label1.Visible:= true;
+      form4.Label2.Visible:= true;
+      form4.Label3.Visible:= true;
+      form4.Label4.Visible:= true;
+      form4.Label5.Visible:= true;
+      form4.Label6.Visible:= true;
+      form4.Label7.Visible:= true;
+      form4.Label8.Visible:= true;
+      form4.Label9.Visible:= true;
+      form4.Label10.Visible:= true;
+      form4.Label12.Visible:= true;
+      form4.Label13.Visible:= true;
+      form4.Label14.Visible:= true;
+      form4.Label15.Visible:= true;
+      form4.Label16.Visible:= true;
+      form4.Label17.Visible:= true;
+      form4.Label18.Visible:= true;
+      form4.Label19.Visible:= true;
+      form4.Label21.Visible:= true;
+      form4.Label22.Visible:= true;
+      form4.Label23.Visible:= true;
+      form4.Label24.Visible:= true;
+      form4.Label25.Visible:= true;
+      form4.Label26.Visible:= true;
+end;
+
+procedure TForm4.Button8Click(Sender: TObject);
+begin
+      form4.DBGrid1.Visible:= false;
+      form4.DBGrid2.Visible:= false;
+      form4.Button7.Visible:= false;
+      form4.Button8.Visible:= false;
+      form4.Button9.Visible:= false;
+      form4.Button10.Visible:= false;
+      form4.Button1.Visible:= true;
+      form4.Button2.Visible:= true;
+      form4.Button6.Visible:= true;
+      form4.Edit1.Visible:= true;
+      form4.Edit2.Visible:= true;
+      form4.Edit3.Visible:= true;
+      form4.Edit4.Visible:= true;
+      form4.Edit5.Visible:= true;
+      form4.Edit6.Visible:= true;
+      form4.Edit7.Visible:= true;
+      form4.Edit8.Visible:= true;
+      form4.Edit9.Visible:= true;
+      form4.Edit10.Visible:= true;
+      form4.Edit11.Visible:= true;
+      form4.Edit12.Visible:= true;
+      form4.Edit13.Visible:= true;
+      edit14.Visible:= false;
+      label11.Visible:= false;
+      button11.Visible:= false;
+      form4.Label1.Visible:= true;
+      form4.Label2.Visible:= true;
+      form4.Label3.Visible:= true;
+      form4.Label4.Visible:= true;
+      form4.Label5.Visible:= true;
+      form4.Label6.Visible:= true;
+      form4.Label7.Visible:= true;
+      form4.Label8.Visible:= true;
+      form4.Label9.Visible:= true;
+      form4.Label10.Visible:= true;
+      form4.Label12.Visible:= true;
+      form4.Label13.Visible:= true;
+      form4.Label14.Visible:= true;
+      form4.Label15.Visible:= true;
+      form4.Label16.Visible:= true;
+      form4.Label17.Visible:= true;
+      form4.Label18.Visible:= true;
+      form4.Label19.Visible:= true;
+      form4.Label21.Visible:= true;
+      form4.Label22.Visible:= true;
+      form4.Label23.Visible:= true;
+      form4.Label24.Visible:= true;
+      form4.Label25.Visible:= true;
+      form4.Label26.Visible:= true;
+      usuario:= form3.ADOCLIENTE.FieldByName('Id_Cliente').AsInteger;
+      form3.ADOUSUARIO.Locate('Id_Cliente',usuario,[]);
+      form4.edit1.Text:= form3.ADOCLIENTE.FieldByName('Nombre').AsString;
+      form4.edit2.Text:= form3.ADOCLIENTE.FieldByName('Apellido').AsString;
+      form4.edit3.Text:= form3.ADOCLIENTE.FieldByName('Codigo_Postal').AsString;
+      form4.edit4.Text:= form3.ADOCLIENTE.FieldByName('Calle').AsString;
+      form4.edit5.Text:= form3.ADOCLIENTE.FieldByName('Numero').AsString;
+      form4.edit6.Text:= form3.ADOCLIENTE.FieldByName('Piso').AsString;
+      form4.edit7.Text:= form3.ADOCLIENTE.FieldByName('Depto').AsString;
+      form4.edit8.Text:= form3.ADOCLIENTE.FieldByName('Localidad').AsString;
+      form4.edit11.Text:= form3.ADOCLIENTE.FieldByName('Provincia').AsString;
+      form4.edit9.Text:= form3.ADOCLIENTE.FieldByName('Tarjeta').AsString;
+      form4.Edit12.Text:= form3.ADOUSUARIO.FieldByName('Usuario').AsString;
+      form4.Edit13.Text:= form3.ADOUSUARIO.FieldByName('Contraseña').AsString;
+      form4.Edit10.Text:= form3.ADOUSUARIO.FieldByName('Contraseña').AsString;
+      form4.button3.visible:= true;
+      form4.button6.visible:= true;
+      form4.label12.Visible := False;
+      form4.button1.Visible := False;
+end;
+
+procedure TForm4.Button9Click(Sender: TObject);
+begin
+    FORM13.ok:= FALSE;
+  form13.Label1.Caption:= 'Esta seguro de eliminar la cuenta?';
+  form13.ShowModal;
+  if FORM13.OK then
+   begin
+    form3.ADOUSUARIO.edit;
+    form3.ADOUSUARIO.FieldByName('Eliminado').AsBoolean:= true;
+    form3.ADOUSUARIO.Post;
+    form3.ADOusuario.Close;
+    form3.ADOusuario.Filter:= 'Eliminado = false';
+    form3.ADOusuario.Filtered:= true;
+    form3.ADOusuario.Open;
+    form3.ADOCLIENTE.edit;
+    form3.ADOCLIENTE.FieldByName('Eliminado').AsBoolean:= true;
+    form3.ADOCLIENTE.Post;
+    form3.ADOcliente.Close;
+    form3.ADOcliente.Filter:= 'Eliminado = false';
+    form3.ADOcliente.Filtered:= true;
+    form3.ADOcliente.Open;
+    messagedlg('La cuenta se elimino exitosamente',mtinformation,[mbok],0);
+    form3.ADOCLIENTE.Close;
+    form3.ADOCLIENTE.Open;
+    form3.ADOUSUARIO.Close;
+    form3.ADOUSUARIO.Open;
+    DBGrid1.Refresh;
+    BUTTON8.Enabled:= FALSE;
+    button9.Enabled:= false
+   end;
+end;
+
+procedure TForm4.DBGrid1CellClick(Column: TColumn);
+begin
+  button8.Enabled:= true;
+  button9.Enabled:= true;
+  button7.Enabled:= false;
+end;
+
+procedure TForm4.DBGrid1TitleClick(Column: TColumn);
+begin
+if column.Title.Caption= 'Nombre' then
+ begin
+  form3.ADOCLIENTE.IndexFieldNames:= 'Nombre';
+ end;
+if column.Title.Caption= 'Apellido' then
+ begin
+   form3.ADOCLIENTE.IndexFieldNames:= 'Apellido';
+ end;
+end;
+
+procedure TForm4.DBGrid2CellClick(Column: TColumn);
+begin
+  button8.Enabled:= true;
+  button9.Enabled:= true;
+  button7.Enabled:= false;
+end;
+
+procedure TForm4.Edit11KeyPress(Sender: TObject; var Key: Char);
+begin
+  if not(key in ['A'..'Z',#08,'a'..'z',#32]) then
+    key := #0;
+end;
+
+procedure TForm4.Edit12KeyPress(Sender: TObject; var Key: Char);
+begin
+if key = ' ' then
+ Key := #0;
+end;
+
+procedure TForm4.Edit13KeyPress(Sender: TObject; var Key: Char);
+begin
+if key = ' ' then
+ Key := #0;
+end;
+
+procedure TForm4.Edit14Change(Sender: TObject);
+begin
+form3.ADOQuery1.Close;
+form3.ADOQuery1.Parameters.ParamByName('par1').Value:= edit14.Text;
+form3.ADOQuery1.Parameters.ParamByName('par2').Value:= edit14.Text;
+form3.ADOQuery1.Open;
+end;
+
+procedure TForm4.Edit14Click(Sender: TObject);
+begin
+edit14.Text:='';
+edit14.Font.Color:= clblack;
+DBGrid2.Visible:= true;
+
+end;
+
+procedure TForm4.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+     if not(key in ['A'..'Z',#08,'a'..'z',#32]) then
+    key := #0;
+end;
+
+procedure TForm4.Edit2KeyPress(Sender: TObject; var Key: Char);
+begin
+  if not(key in ['A'..'Z',#08,'a'..'z',#32]) then
+    key := #0;
+end;
+
+procedure TForm4.Edit8KeyPress(Sender: TObject; var Key: Char);
+begin
+  if not(key in ['A'..'Z',#08,'a'..'z',#32,'0'..'9']) then
+    key := #0;
+end;
+
+procedure TForm4.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+       edit1.Text:= '';
+       edit2.Text:= '';
+       edit3.Text:= '';
+       edit4.Text:= '';
+       edit5.Text:= '';
+       edit6.Text:= '';
+       edit7.Text:= '';
+       edit8.Text:= '';
+       edit9.Text:= '';
+       edit11.Text:= '';
+       edit12.Text:= '';
+       edit13.Text:= '';
+       form3.ADOCLIENTE.Close;
+       form3.ADOCLIENTE.Open;
+       form3.ADOUSUARIO.Close;
+       form3.ADOUSUARIO.Open;
+       form4.button3.visible:= false;
+       form4.button4.visible:= false;
+       form4.button5.visible:= false;
+       form4.button6.visible:= false;
+if form4.Caption = 'CLIENTES' then
+begin
+      form4.DBGrid1.Visible:= true;
+      form4.Button7.Visible:= true;
+      form4.Button8.Visible:= true;
+      form4.Button9.Visible:= true;
+      form4.Button10.Visible:= true;
+      form4.Button1.Visible:= false;
+      form4.Button2.Visible:= false;
+      FORM4.Button3.Visible:= FALSE;
+      form4.Button6.Visible:= false;
+      form4.Edit1.Visible:= false;
+      form4.Edit2.Visible:= false;
+      form4.Edit3.Visible:= false;
+      form4.Edit4.Visible:= false;
+      form4.Edit5.Visible:= false;
+      form4.Edit6.Visible:= false;
+      form4.Edit7.Visible:= false;
+      form4.Edit8.Visible:= false;
+      form4.Edit9.Visible:= false;
+      form4.Edit10.Visible:= false;
+      form4.Edit11.Visible:= false;
+      form4.Edit12.Visible:= false;
+      form4.Edit13.Visible:= false;
+      form4.Label1.Visible:= false;
+      form4.Label2.Visible:= false;
+      form4.Label3.Visible:= false;
+      form4.Label4.Visible:= false;
+      form4.Label5.Visible:= false;
+      form4.Label6.Visible:= false;
+      form4.Label7.Visible:= false;
+      form4.Label8.Visible:= false;
+      form4.Label9.Visible:= false;
+      form4.Label10.Visible:= false;
+      form4.Label12.Visible:= false;
+      form4.Label13.Visible:= false;
+      form4.Label14.Visible:= false;
+      form4.Label15.Visible:= false;
+      form4.Label16.Visible:= false;
+      form4.Label17.Visible:= false;
+      form4.Label18.Visible:= false;
+      form4.Label19.Visible:= false;
+      form4.Label21.Visible:= false;
+      form4.Label22.Visible:= false;
+      form4.Label23.Visible:= false;
+      form4.Label24.Visible:= false;
+      form4.Label25.Visible:= false;
+      form4.Label26.Visible:= false;
+      label11.Visible:= true;
+      edit14.Visible:= true;
+      button11.Visible:= true;
+      button8.Enabled:= false;
+      button9.Enabled:= false;
+end;
+end;
+
+end.
