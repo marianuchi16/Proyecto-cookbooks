@@ -1,0 +1,211 @@
+object Form10: TForm10
+  Left = 242
+  Top = 133
+  BorderStyle = bsDialog
+  Caption = 'HOJEAR LIBRO'
+  ClientHeight = 396
+  ClientWidth = 1009
+  Color = 14134444
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -19
+  Font.Name = 'Times New Roman'
+  Font.Style = [fsBold]
+  OldCreateOrder = False
+  Position = poDesigned
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 22
+  object Image1: TImage
+    AlignWithMargins = True
+    Left = 8
+    Top = 8
+    Width = 265
+    Height = 337
+    AutoSize = True
+    Center = True
+  end
+  object Label1: TLabel
+    Left = 292
+    Top = 28
+    Width = 54
+    Height = 22
+    Caption = 'Titulo:'
+  end
+  object Label2: TLabel
+    Left = 376
+    Top = 8
+    Width = 330
+    Height = 49
+    AutoSize = False
+    Color = clWhite
+    ParentColor = False
+    Transparent = False
+    WordWrap = True
+  end
+  object Label3: TLabel
+    Left = 292
+    Top = 322
+    Width = 77
+    Height = 22
+    Caption = 'Editorial:'
+  end
+  object Label4: TLabel
+    Left = 375
+    Top = 307
+    Width = 241
+    Height = 32
+    AutoSize = False
+    Color = clWhite
+    ParentColor = False
+    Transparent = False
+  end
+  object Label5: TLabel
+    Left = 376
+    Top = 110
+    Width = 241
+    Height = 32
+    AutoSize = False
+    Color = clWhite
+    ParentColor = False
+    Transparent = False
+  end
+  object Label6: TLabel
+    Left = 292
+    Top = 121
+    Width = 58
+    Height = 22
+    Caption = 'Precio:'
+  end
+  object Label7: TLabel
+    Left = 292
+    Top = 162
+    Width = 70
+    Height = 22
+    Caption = 'P'#225'ginas:'
+  end
+  object Label8: TLabel
+    Left = 376
+    Top = 148
+    Width = 241
+    Height = 32
+    AutoSize = False
+    Color = clWhite
+    ParentColor = False
+    Transparent = False
+  end
+  object Label9: TLabel
+    Left = 292
+    Top = 202
+    Width = 62
+    Height = 22
+    Caption = 'Idioma:'
+  end
+  object Label10: TLabel
+    Left = 376
+    Top = 188
+    Width = 241
+    Height = 32
+    AutoSize = False
+    Color = clWhite
+    ParentColor = False
+    Transparent = False
+  end
+  object Label11: TLabel
+    Left = 292
+    Top = 246
+    Width = 122
+    Height = 22
+    Caption = 'Fecha Edici'#243'n:'
+  end
+  object Label12: TLabel
+    Left = 424
+    Top = 229
+    Width = 193
+    Height = 32
+    AutoSize = False
+    Color = clWhite
+    ParentColor = False
+    Transparent = False
+  end
+  object Label13: TLabel
+    Left = 292
+    Top = 279
+    Width = 50
+    Height = 22
+    Caption = 'ISBN:'
+  end
+  object Label14: TLabel
+    Left = 376
+    Top = 269
+    Width = 241
+    Height = 32
+    AutoSize = False
+    Color = clWhite
+    ParentColor = False
+    Transparent = False
+  end
+  object Label15: TLabel
+    Left = 292
+    Top = 77
+    Width = 52
+    Height = 22
+    Caption = 'Autor:'
+  end
+  object Label16: TLabel
+    Left = 376
+    Top = 69
+    Width = 330
+    Height = 32
+    AutoSize = False
+    Color = clWhite
+    ParentColor = False
+    Transparent = False
+    WordWrap = True
+  end
+  object Label17: TLabel
+    Left = 725
+    Top = 9
+    Width = 108
+    Height = 22
+    AutoSize = False
+    Caption = 'Descripci'#243'n:'
+  end
+  object Label18: TLabel
+    Left = 8
+    Top = 366
+    Width = 51
+    Height = 22
+    Caption = 'Ayuda'
+    Visible = False
+  end
+  object Memo1: TMemo
+    Left = 725
+    Top = 37
+    Width = 266
+    Height = 185
+    ReadOnly = True
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 734
+    Top = 340
+    Width = 244
+    Height = 27
+    Caption = 'Agregar al carrito'
+    TabOrder = 1
+    OnClick = Button1Click
+  end
+  object Memo2: TMemo
+    Left = 738
+    Top = 228
+    Width = 253
+    Height = 89
+    Lines.Strings = (
+      'Si desea comprar un libro '
+      '    debe registrarse')
+    ReadOnly = True
+    TabOrder = 2
+    Visible = False
+  end
+end

@@ -1,0 +1,50 @@
+unit Unit16;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ComCtrls;
+
+type
+  TForm16 = class(TForm)
+    button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Label1: TLabel;
+    DateTimePicker1: TDateTimePicker;
+    DateTimePicker2: TDateTimePicker;
+    Label2: TLabel;
+    Label3: TLabel;
+    procedure button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form16: TForm16;
+
+implementation
+
+uses Unit11, Unit14, Unit15, Unit3;
+
+{$R *.dfm}
+
+procedure TForm16.button1Click(Sender: TObject);
+begin
+FORM15.
+end;
+
+procedure TForm16.Button2Click(Sender: TObject);
+begin
+form3.ADOinformecliente.Close;
+form3.ADOinformecliente.Parameters.ParamByName('par1').Value:= DateTimePicker1.Date;
+form3.ADOinformecliente.Parameters.ParamByName('par2').Value:= DateTimePicker2.Date;
+form3.ADOinformecliente.Open;
+form14.QRPQuickrep1.Preview;
+end;
+
+end.

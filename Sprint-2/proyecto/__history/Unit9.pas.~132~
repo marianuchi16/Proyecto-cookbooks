@@ -1,0 +1,659 @@
+unit Unit9;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Grids, DBGrids, ComCtrls, DBCtrls, Mask, ExtDlgs, ExtCtrls;
+
+type
+  TForm9 = class(TForm)
+    DBGrid1: TDBGrid;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Label17: TLabel;
+    Label18: TLabel;
+    Edit2: TEdit;
+    Label2: TLabel;
+    Label12: TLabel;
+    Button5: TButton;
+    Button4: TButton;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    Edit8: TEdit;
+    DateTimePicker1: TDateTimePicker;
+    label30: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label19: TLabel;
+    Memo1: TMemo;
+    Label20: TLabel;
+    Edit7: TEdit;
+    Button8: TButton;
+    OpenPictureDialog1: TOpenPictureDialog;
+    Button6: TButton;
+    Image1: TImage;
+    Label21: TLabel;
+    Label22: TLabel;
+    Edit9: TEdit;
+    Label23: TLabel;
+    DBGrid3: TDBGrid;
+    DBGrid2: TDBGrid;
+    Label24: TLabel;
+    Edit10: TEdit;
+    Label25: TLabel;
+    procedure Button1Click(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Edit5KeyPress(Sender: TObject; var Key: Char);
+    procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit4KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit7Change(Sender: TObject);
+    procedure Edit7Click(Sender: TObject);
+    procedure Edit10Change(Sender: TObject);
+    procedure DBGrid2CellClick(Column: TColumn);
+    procedure DBGrid3CellClick(Column: TColumn);
+  private
+  id:integer;
+  nombre: string;
+    { Private declarations }
+  public
+  ok: integer;
+    { Public declarations }
+  end;
+
+var
+  Form9: TForm9;
+implementation
+
+uses Unit3, Unit8, Unit11, Unit13;
+
+{$R *.dfm}
+
+procedure TForm9.Button1Click(Sender: TObject);
+begin
+label1.Visible:= true;
+label2.Visible:= true;
+label3.Visible:= true;
+label4.Visible:= true;
+edit10.Visible:= true;
+label2.Visible:= true;
+DBGrid2.Visible:= true;
+label5.Visible:= true;
+label6.Visible:= true;
+label7.Visible:= true;
+label8.Visible:= true;
+label9.Visible:= true;
+label17.Visible:= true;
+label18.Visible:= true;
+label30.Visible:= true;
+label10.Visible:= true;
+label11.Visible:= true;
+label12.Visible:= true;
+label13.Visible:= true;
+label14.Visible:= true;
+label15.Visible:= true;
+label16.Visible:= true;
+label19.Visible:= true;
+label21.Visible:= true;
+image1.Visible:= true;
+button6.Visible:= true;
+Edit1.Visible:= true;
+Edit2.Visible:= true;
+Edit3.Visible:= true;
+Edit4.Visible:= true;
+Edit5.Visible:= true;
+Edit6.Visible:= true;
+Edit8.Visible:= true;
+DateTimePicker1.Visible:= true;
+button2.enabled:= false;
+button3.Enabled:= false;
+button4.Visible:= true;
+button5.Visible:= true;
+memo1.Visible:= true;
+dbgrid1.Enabled:= false;
+ok:= 0;
+label22.Visible:= true;
+label23.Visible:= true;
+edit9.Visible:= true;
+end;
+
+procedure TForm9.Button2Click(Sender: TObject);
+begin
+button1.Enabled:= false;
+label1.Visible:= true;
+label2.Visible:= true;
+label3.Visible:= true;
+label4.Visible:= true;
+label5.Visible:= true;
+label7.Visible:= true;
+label17.Visible:= true;
+label18.Visible:= true;
+label30.Visible:= true;
+label10.Visible:= true;
+label11.Visible:= true;
+label12.Visible:= true;
+label13.Visible:= true;
+label14.Visible:= true;
+label15.Visible:= true;
+label16.Visible:= true;
+label19.Visible:= true;
+label6.Visible:= true;
+label8.Visible:= true;
+label9.Visible:= true;
+edit6.Visible:= true;
+edit8.Visible:= true;
+Edit1.Visible:= true;
+Edit2.Visible:= true;
+Edit3.Visible:= true;
+Edit4.Visible:= true;
+Edit5.Visible:= true;
+DateTimePicker1.Visible:= true;
+button2.enabled:= false;
+button3.Enabled:= false;
+button4.Visible:= true;
+button5.Visible:= true;
+memo1.Visible:= true;
+dbgrid1.Enabled:= false;
+label21.Visible:= true;
+image1.Visible:= true;
+button6.Visible:= true;
+label22.Visible:= true;
+label23.Visible:= true;
+edit9.Visible:= true;
+if not(DBGrid3.Visible) then
+begin
+    Edit1.Text:= form3.ADOlibro.fieldbyname('Nombre').asString;
+    Edit2.Text:= form3.ADOlibro.fieldbyname('Editorial').asString;
+    memo1.lines.Text:= form3.ADOlibro.fieldbyname('Sinopsis').asString;
+    Edit3.Text:= form3.ADOlibro.fieldbyname('Cantidad_De_Paginas').asString;
+    Edit4.Text:= form3.ADOlibro.fieldbyname('Idioma').asString;
+    Edit5.Text:= form3.ADOlibro.fieldbyname('Precio').asString;
+    DateTimePicker1.Date:= form3.ADOlibro.fieldbyname('Fecha_De_Edicion').AsDateTime;
+    id:= form3.ADOLIBRO.FieldByName('Id_Autor').AsInteger;
+    Form3.ADOautor.Locate('Id_Autor',id,[]);
+    edit6.Text:= form3.ADOAUTOR.FieldByName('Nombre').AsString;
+    edit8.Text:= form3.ADOAUTOR.FieldByName('Apellido').AsString;
+    nombre:= form3.ADOLIBRO.FieldByName('Tapa').AsString;
+    edit9.Text:= form3.ADOLIBRO.FieldByName('ISBN').AsString;
+    image1.Picture.LoadFromFile('C:\Users\Huertas\Documents\RAD Studio\Projects\proyecto\images\'+nombre);
+end
+else
+begin
+    Edit1.Text:= form3.ADOQuery3.fieldbyname('Nombre').asString;
+    Edit2.Text:= form3.ADOQuery3.fieldbyname('Editorial').asString;
+    memo1.lines.Text:= form3.ADOQuery3.fieldbyname('Sinopsis').asString;
+    Edit3.Text:= form3.ADOQuery3.fieldbyname('Cantidad_De_Paginas').asString;
+    Edit4.Text:= form3.ADOQuery3.fieldbyname('Idioma').asString;
+    Edit5.Text:= form3.ADOQuery3.fieldbyname('Precio').asString;
+    DateTimePicker1.Date:= form3.ADOQuery3.fieldbyname('Fecha_De_Edicion').AsDateTime;
+    id:= form3.ADOQuery3.FieldByName('Id_Autor').AsInteger;
+    Form3.ADOautor.Locate('Id_Autor',id,[]);
+    edit6.Text:= form3.ADOAUTOR.FieldByName('Nombre').AsString;
+    edit8.Text:= form3.ADOAUTOR.FieldByName('Apellido').AsString;
+    nombre:= form3.ADOQuery3.FieldByName('Tapa').AsString;
+    edit9.Text:= form3.ADOQuery3.FieldByName('ISBN').AsString;
+    image1.Picture.LoadFromFile('C:\Users\Huertas\Documents\RAD Studio\Projects\proyecto\images\'+nombre);
+end;
+end;
+
+procedure TForm9.Button3Click(Sender: TObject);
+begin
+form13.ok:= false;
+form13.Label1.Caption:= 'Esta seguro de eliminar el libro?';
+form13.ShowModal;
+nombre:= form3.ADOLIBRO.FieldByName('ISBN').AsString;
+if not(DBGrid3.Visible) then
+begin
+    if form13.ok and not (form3.ADOPEDIDO.Locate('ISBN',nombre,[])) then
+        begin
+        form3.ADOlibro.edit;
+        form3.ADOLIBRO.FieldByName('Eliminado').AsBoolean:= true;
+        form3.ADOLIBRO.Post;
+        form3.ADOLIBRO.Close;
+        form3.ADOLIBRO.Filter:= 'Eliminado = false';
+        form3.ADOLIBRO.Filtered:= true;
+        form3.ADOLIBRO.Open;
+        form8.DBGrid1.Refresh;
+        messagedlg('El libro se elimino exitosamente!!',mtinformation,[mbok],0);
+        end
+        else
+        begin
+          messagedlg('No se puede eliminar el libro posee registros relacionados!!',mtinformation,[mbok],0);
+          button2.Enabled:= false;
+          button3.Enabled:= false;
+          button1.Enabled:= true;
+        end;
+end
+else
+nombre:= form3.ADOQuery3.FieldByName('ISBN').AsString;
+if form13.ok and not (form3.ADOPEDIDO.Locate('ISBN',nombre,[])) then
+        begin
+        form3.ADOlibro.edit;
+        form3.ADOLIBRO.FieldByName('Eliminado').AsBoolean:= true;
+        form3.ADOLIBRO.Post;
+        form3.ADOLIBRO.Close;
+        form3.ADOLIBRO.Filter:= 'Eliminado = false';
+        form3.ADOLIBRO.Filtered:= true;
+        form3.ADOLIBRO.Open;
+        DBGrid3.Visible:= false;
+        DBGrid1.Visible:= true;
+        edit7.Text:= '';
+        form8.DBGrid1.Refresh;
+        messagedlg('El libro se elimino exitosamente!!',mtinformation,[mbok],0);
+        end
+        else
+        begin
+          messagedlg('No se puede eliminar el libro posee registros relacionados!!',mtinformation,[mbok],0);
+          button2.Enabled:= false;
+          button3.Enabled:= false;
+          button1.Enabled:= true;
+        end;
+end;
+
+procedure TForm9.Button4Click(Sender: TObject);
+begin
+
+if button1.Enabled then
+begin
+ if not(edit1.Text = '')and not(edit2.Text = '') and not(edit3.Text = '') and
+ not(edit4.Text = '') and not (edit5.Text = '') and not (edit6.Text = '')and
+ not(edit8.Text = '') and not(memo1.Lines.Count = 0)
+ and not(OpenPictureDialog1.FileName = '')and not(edit9.Text = '') then
+ begin
+    if  (length(edit9.Text) < 14) and (length(edit9.Text) > 9) then
+    begin
+          if not(form3.ADOAUTOR.Locate('Nombre;Apellido',vararrayof([Edit6.Text,edit8.Text]),[])) then
+          begin
+                form3.ADOAUTOR.Open;
+                form3.ADOAUTOR.Append;
+                form3.ADOAUTOR.FieldByName('Nombre').AsString:= edit6.Text;
+                form3.ADOAUTOR.FieldByName('Apellido').AsString:= edit8.Text;
+                form3.ADOAUTOR.Post;
+          end;
+          form3.ADOlibro.open;
+          form3.ADOlibro.Append;
+          form3.ADOlibro.fieldbyname('Nombre').asString:= Edit1.Text ;
+          form3.ADOlibro.fieldbyname('Editorial').asString:= Edit2.Text;
+          form3.ADOlibro.fieldbyname('Sinopsis').asString:=memo1.lines.Text;
+          form3.ADOlibro.fieldbyname('Cantidad_De_Paginas').asString:=Edit3.Text;
+          form3.ADOlibro.fieldbyname('Idioma').asString:=Edit4.Text;
+          form3.ADOlibro.fieldbyname('Precio').asString:=Edit5.Text ;
+          form3.ADOlibro.fieldbyname('Fecha_De_Edicion').AsDateTime:=DateTimePicker1.Date;
+          form3.ADOLIBRO.FieldByName('Tapa').AsString:= ExtractFileName(OpenPictureDialog1.FileName);
+          MoveFile(PChar(OpenPictureDialog1.FileName), PChar('C:\Users\Huertas\Documents\RAD Studio\Projects\proyecto\images\'+ExtractFileName(OpenPictureDialog1.FileName)));
+          form3.ADOlibro.fieldbyname('Id_Autor').asinteger:= form3.ADOAUTOR.FieldByName('Id_Autor').AsInteger;
+          form3.ADOLIBRO.FieldByName('ISBN').AsString:= edit9.Text;
+          form3.ADOlibro.Post;
+          messagedlg('El libro se agrego exitosamente!!',mtinformation,[mbok],0);
+          form3.adolibro.Close;
+          form3.ADOlibro.Open;
+          dbgrid1.Refresh;
+          label1.Visible:= false;
+          label2.Visible:= false;
+          edit1.Visible:= false;
+          edit2.Visible:= false;
+          label17.Visible:= false;
+          label18.Visible:= false;
+          label12.Visible:= false;
+          button4.Visible:= false;
+          button5.Visible:= false;
+          edit1.Text:= '';
+          edit2.Text:='';
+          edit3.Text:= '';
+          edit4.Text:= '';
+          edit5.Text:= '';
+          edit6.Text:= '';
+          edit8.Text:= '';
+          edit10.Text:= '';
+          image1.Picture:= nil;
+          memo1.Lines.Text:='';
+          datetimepicker1.Date:= date();
+          label3.Visible:= false;
+          label4.Visible:= false;
+          label5.Visible:= false;
+          label6.Visible:= false;
+          label7.Visible:= false;
+          edit10.Visible:= false;
+          label2.Visible:= false;
+          DBGrid2.Visible:= false;
+          label8.Visible:= false;
+          label9.Visible:= false;
+          label30.Visible:= false;
+          label10.Visible:= false;
+          label1.Visible:= false;
+          label13.Visible:= false;
+          label14.Visible:= false;
+          label15.Visible:= false;
+          label16.Visible:= false;
+          label17.Visible:= false;
+          label11.Visible:= false;
+          label19.Visible:= false;
+          Edit1.Visible:= false;
+          Edit2.Visible:= false;
+          Edit3.Visible:= false;
+          Edit4.Visible:= false;
+          Edit5.Visible:= false;
+          Edit6.Visible:= false;
+          Edit8.Visible:= false;
+          Form9.DateTimePicker1.Visible:= false;
+          button4.Visible:= false;
+          button5.Visible:= false;
+          memo1.Visible:= false;
+          dbgrid1.Enabled:= true;
+          button2.Enabled:= true;
+          button3.Enabled:= true;
+          label21.Visible:= false;
+          image1.Visible:= false;
+          button6.Visible:= false;
+          label22.Visible:= false;
+          label23.Visible:= false;
+          edit9.Visible:= false;
+          edit9.Text:= '';
+    end
+    else
+      messagedlg('El ISBN debe tener entre 10 y 13 digitos!!!',mtwarning, [mbok],0);
+
+ end
+ else
+     messagedlg('Ingrese los campos obligatorios!!',mtwarning, [mbok],0);
+end
+else
+begin
+    if not(edit1.Text = '')and not(edit2.Text = '') and not(edit3.Text = '') and
+     not(edit4.Text = '') and not (edit5.Text = '') and not (edit6.Text = '')and
+     not(edit8.Text = '') and not(OpenPictureDialog1.FileName = '')
+     and not(memo1.Lines.Count = 0) then
+       begin
+        if  (length(edit9.Text) < 14) and (length(edit9.Text) > 9) then
+        begin
+          if not(form3.ADOAUTOR.Locate('Nombre;Apellido',vararrayof([Edit6.Text,edit8.Text]),[])) then
+          begin
+                form3.ADOAUTOR.Open;
+                form3.ADOAUTOR.Append;
+                form3.ADOAUTOR.FieldByName('Nombre').AsString:= edit6.Text;
+                form3.ADOAUTOR.FieldByName('Apellido').AsString:= edit8.Text;
+                form3.ADOAUTOR.Post;
+          end;
+//modificar libro
+          form3.ADOlibro.Edit;
+          form3.ADOlibro.fieldbyname('Nombre').asString := Edit1.Text;
+          form3.ADOlibro.fieldbyname('Editorial').asString:= Edit2.Text;
+          form3.ADOlibro.fieldbyname('Sinopsis').asString:=memo1.lines.Text;
+          form3.ADOlibro.fieldbyname('Cantidad_De_Paginas').asString:=Edit3.Text;
+          form3.ADOlibro.fieldbyname('Idioma').asString:=Edit4.Text;
+          form3.ADOlibro.fieldbyname('Precio').asString:=Edit5.Text ;
+          form3.ADOlibro.fieldbyname('Fecha_De_Edicion').AsDateTime:=DateTimePicker1.Date;
+          form3.ADOLIBRO.FieldByName('ISBN').AsString:= edit9.Text;
+          form3.ADOLIBRO.FieldByName('Tapa').AsString:= ExtractFileName(OpenPictureDialog1.FileName);
+          MoveFile(PChar(OpenPictureDialog1.FileName), PChar('C:\Users\Huertas\Documents\RAD Studio\Projects\proyecto\images\'+ExtractFileName(OpenPictureDialog1.FileName)));
+          form3.ADOlibro.fieldbyname('Id_Autor').asinteger:= form3.ADOAUTOR.FieldByName('Id_Autor').AsInteger;
+          form3.ADOlibro.Post;
+          messagedlg('El libro se modifico exitosamente!!',mtinformation,[mbok],0);
+          form3.adolibro.Close;
+          form3.ADOlibro.Open;
+          dbgrid1.Refresh;
+          label1.Visible:= false;
+          label2.Visible:= false;
+          edit1.Visible:= false;
+          edit2.Visible:= false;
+          label17.Visible:= false;
+          label18.Visible:= false;
+          label12.Visible:= false;
+          button4.Visible:= false;
+          button5.Visible:= false;
+          edit1.Text:= '';
+          edit2.Text:='';
+          label3.Visible:= false;
+          label4.Visible:= false;
+          label5.Visible:= false;
+          label6.Visible:= false;
+          label7.Visible:= false;
+          label8.Visible:= false;
+          label9.Visible:= false;
+          label30.Visible:= false;
+          label10.Visible:= false;
+          label1.Visible:= false;
+          label13.Visible:= false;
+          label14.Visible:= false;
+          label15.Visible:= false;
+          label16.Visible:= false;
+          label17.Visible:= false;
+          label11.Visible:= false;
+          Edit1.Visible:= false;
+          Edit2.Visible:= false;
+          Edit3.Visible:= false;
+          Edit4.Visible:= false;
+          Edit5.Visible:= false;
+          Edit6.Visible:= false;
+          edit10.Visible:= false;
+          label2.Visible:= false;
+          DBGrid2.Visible:= false;
+          Edit8.Visible:= false;
+          Form9.DateTimePicker1.Visible:= false;
+          button4.Visible:= false;
+          button5.Visible:= false;
+          memo1.Visible:= false;
+          dbgrid1.Enabled:= true;
+          button2.Enabled:= true;
+          button3.Enabled:= true;
+          label21.Visible:= false;
+          image1.Visible:= false;
+          image1.Picture:= nil;
+          button6.Visible:= false;
+          label22.Visible:= false;
+          label23.Visible:= false;
+          edit9.Visible:= false;
+          edit9.Text:='';
+       end
+       else
+      messagedlg('El ISBN debe tener entre 10 y 13 digitos!!!',mtwarning, [mbok],0);
+    end
+    else
+        messagedlg('Ingrese los campos obligatorios!!',mtwarning, [mbok],0);
+end;
+dbgrid3.Refresh;
+dbgrid3.Enabled:=true;
+{edit1.Text:= '';
+edit2.Text:='';
+edit3.Text:= '';
+edit4.Text:= '';
+edit5.Text:= '';
+edit6.Text:= '';
+edit8.Text:= '';
+edit9.Text:= '';
+memo1.Lines.Text:= '';
+datetimepicker1.Date:= date();
+button2.Enabled:= false;
+button3.Enabled:= false;
+button1.Enabled:= true;
+dbgrid1.Enabled:= true;}
+end;
+
+procedure TForm9.Button5Click(Sender: TObject);
+begin
+    edit1.Text:= '';
+    edit2.Text:='';
+    edit3.Text:= '';
+    edit4.Text:= '';
+    edit5.Text:= '';
+    edit6.Text:= '';
+    edit8.Text:= '';
+    edit9.Text:= '';
+    edit10.Text:= '';
+    memo1.Lines.Text:='';
+    datetimepicker1.Date:= date();
+    label1.Visible:= false;
+    label2.Visible:= false;
+    label3.Visible:= false;
+    label4.Visible:= false;
+    label5.Visible:= false;
+    label6.Visible:= false;
+    edit10.Visible:= false;
+    label2.Visible:= false;
+    DBGrid2.Visible:= false;
+    label7.Visible:= false;
+    label8.Visible:= false;
+    label9.Visible:= false;
+    label17.Visible:= false;
+    label18.Visible:= false;
+    label30.Visible:= false;
+    label10.Visible:= false;
+    label1.Visible:= false;
+    label12.Visible:= false;
+    label13.Visible:= false;
+    label14.Visible:= false;
+    label15.Visible:= false;
+    label16.Visible:= false;
+    label17.Visible:= false;
+    label11.Visible:= false;
+    label19.Visible:= false;
+    Edit1.Visible:= false;
+    Edit2.Visible:= false;
+    Edit3.Visible:= false;
+    Edit4.Visible:= false;
+    Edit5.Visible:= false;
+    Edit6.Visible:= false;
+    Edit8.Visible:= false;
+    Form9.DateTimePicker1.Visible:= false;
+    button1.Enabled:= true;
+    button4.Visible:= false;
+    button5.Visible:= false;
+    memo1.Visible:= false;
+    dbgrid1.Enabled:= true;
+    label21.Visible:= false;
+    image1.Visible:= false;
+    image1.Picture:= nil;
+    button6.Visible:= false;
+    label22.Visible:= false;
+    label23.Visible:= false;
+    edit9.Visible:= false;
+end;
+
+procedure TForm9.Button6Click(Sender: TObject);
+begin
+OpenPictureDialog1.InitialDir:='C:\Users\Huertas\Desktop\';
+OpenPictureDialog1.Execute();
+Image1.Picture.LoadFromFile(OpenPictureDialog1.FileName);
+end;
+
+procedure TForm9.Button7Click(Sender: TObject);
+begin
+if (form3.ADOLIBRO.Locate('Nombre',edit7.Text,[]))then
+form3.ADOLIBRO.Close;
+form3.ADOLIBRO.Filtered:= false;
+form3.ADOLIBRO.Filter:= 'Nombre = ' + Quotedstr(edit7.Text);
+form3.ADOLIBRO.Filtered:= true;
+form3.ADOLIBRO.Open;
+DBGrid1.Refresh;
+end;
+
+procedure TForm9.Button8Click(Sender: TObject);
+begin
+  DBGrid3.Visible:= FALSE;
+  edit7.Text:='INGRESE LIBRO';
+  EDIT7.Font.Color:= clsilver;
+end;
+
+procedure TForm9.DBGrid1CellClick(Column: TColumn);
+begin
+Button2.Enabled:= true;
+button3.Enabled:= true;
+end;
+
+procedure TForm9.DBGrid1TitleClick(Column: TColumn);
+begin
+if column.Title.Caption= 'Titulo' then
+ begin
+  form3.ADOLIBRO.IndexFieldNames:= 'Nombre';
+ end;
+if column.Title.Caption= 'Precio' then
+ begin
+   form3.ADOLIBRO.IndexFieldNames:= 'Precio';
+ end;
+end;
+
+procedure TForm9.DBGrid2CellClick(Column: TColumn);
+begin
+  edit6.Text:= form3.ADOQuery2.FieldByName('Nombre').AsString;
+  edit8.Text:= form3.ADOQuery2.FieldByName('Apellido').AsString;
+  edit10.Text:='';
+end;
+
+procedure TForm9.DBGrid3CellClick(Column: TColumn);
+begin
+Button2.Enabled:= true;
+button3.Enabled:= true;
+end;
+
+procedure TForm9.Edit10Change(Sender: TObject);
+begin
+form3.ADOQuery2.Close;
+form3.ADOQuery2.Parameters.ParamByName('par1').Value:= edit10.Text;
+form3.ADOQuery2.Parameters.ParamByName('par2').Value:= edit10.Text;
+form3.ADOQuery2.Open;
+end;
+
+procedure TForm9.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if not(key in ['A'..'Z',#08,'a'..'z',#32]) then
+    key := #0;
+end;
+
+procedure TForm9.Edit4KeyPress(Sender: TObject; var Key: Char);
+begin
+  if not(key in ['A'..'Z','ñ','Ñ',#08,#135,'a'..'z',#32]) then
+    key := #0;
+end;
+
+procedure TForm9.Edit5KeyPress(Sender: TObject; var Key: Char);
+begin
+    if not(key in [#44,#48,#49,#50,#51,#52,#53,#54,#55,#56,#57,#08]) then
+    begin
+       Key := #0;
+       messagedlg('Caracter invalido!',mtinformation,[mbok],0);
+    end;
+    if (key = #44) and (pos(',',edit5.Text)> 0) then
+          begin
+            Key := #0;
+          end;
+end;
+
+procedure TForm9.Edit7Change(Sender: TObject);
+begin
+form3.ADOQuery3.Close;
+form3.ADOQuery3.Parameters.ParamByName('par1').Value:= edit7.Text;
+form3.ADOQuery3.Open;
+end;
+
+procedure TForm9.Edit7Click(Sender: TObject);
+begin
+ediT7.Text:='';
+edit7.Font.Color:= clblack;
+DBGrid3.Visible:= true;
+end;
+
+end.

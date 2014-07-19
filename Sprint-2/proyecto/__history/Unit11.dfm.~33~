@@ -1,0 +1,20 @@
+object Form11: TForm11
+  Left = 293
+  Top = 110
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'INFORME'
+  ClientHeight = 392
+  ClientWidth = 786
+  Color = 14134444
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -19
+  Font.Name = 'Times New Roman'
+  Font.Style = [fsBold]
+  OldCreateOrder = False
+  Position = poDesigned
+  Scaled = False
+  PixelsPerInch = 96
+  TextHeight = 22
+end

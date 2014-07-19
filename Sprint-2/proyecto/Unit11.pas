@@ -1,0 +1,27 @@
+unit Unit11;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, StdCtrls, ExtCtrls, QuickRpt, qrpBaseCtrls;
+
+type
+  TForm11 = class(TForm)
+    DBGrid1: TDBGrid;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form11: TForm11;
+
+implementation
+
+uses Unit3;
+
+{$R *.dfm}
+
+end.

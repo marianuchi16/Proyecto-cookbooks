@@ -1,0 +1,7 @@
+unit Unit12;
+
+interface
+ procedure buscar(a:integer;b:integer);
+implementation
+
+end.

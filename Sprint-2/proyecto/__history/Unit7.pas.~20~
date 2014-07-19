@@ -1,0 +1,141 @@
+unit Unit7;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, Grids, DBGrids, Buttons, jpeg;
+
+type
+  TForm7 = class(TForm)
+    procedure Label5Click(Sender: TObject);
+    procedure ComboBox1Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+     usu: string;
+    usuario: integer;
+    a,b: integer;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form7: TForm7;
+
+implementation
+
+uses Unit8, Unit1, Unit9, Unit3, Unit12;
+
+{$R *.dfm}
+
+procedure TForm7.BitBtn1Click(Sender: TObject);
+begin
+if (edit3.Visible) then
+      if not(edit3.Text = '') then
+       begin
+          if combobox1.ItemIndex = 0 then
+          begin
+            usu:= edit3.Text;
+          if form3.ADOAUTOR.Locate('Nombre',usu,[])then
+          begin
+              usuario:= form3.ADOAUTOR.FieldByName('Id_Autor').AsInteger;
+             // form3.ADOLIBRO.Locate('Id_Autor', usuario,[]);
+             form3.ADOLIBRO.Close;
+             form3.ADOLIBRO.Filter:= 'Id_Autor = ' + Quotedstr(inttostr(usuario));
+             form3.ADOLIBRO.Filtered:= true;
+             form3.ADOLIBRO.Open;
+             form1.DBgrid1.refresh;
+          end
+          else
+          begin
+                  form3.ADOLIBRO.Close;
+             form3.ADOLIBRO.Filter:= 'Id_Autor = ' + Quotedstr(inttostr(0));
+             form3.ADOLIBRO.Filtered:= true;
+             form3.ADOLIBRO.Open;
+             form1.DBgrid1.refresh;
+          end;
+           form1.DBgrid1.refresh;
+          edit3.Text:= '';
+          bitbtn1.Enabled:= false;
+          combobox1.ItemIndex:= -1;
+        end
+      else
+      begin
+      if  combobox1.ItemIndex = 1 then
+        begin
+        //form3.ADOLIBRO.Locate('Nombre', edit1.Text,[]);
+        form3.ADOLIBRO.Close;
+        form3.ADOLIBRO.Filter:= 'Nombre = ' + Quotedstr(edit3.Text);
+        form3.ADOLIBRO.Filtered:= true;
+        form3.ADOLIBRO.Open;
+        form1.DBgrid1.refresh;
+        edit3.Text:= '';
+        bitbtn1.Enabled:= false;
+        combobox1.ItemIndex:= -1;
+        end;
+      end;
+       end
+       else
+         messagedlg('Ingrese un titulo o un autor!!!',mtinformation,[mbok],0)
+else
+if combobox1.ItemIndex = 2 then
+        begin
+          if combobox2.ItemIndex = 0 then
+            begin
+              a:= 0; b:= 99;
+            end;
+          if combobox2.ItemIndex = 1 then
+             begin
+               a:= 100; b:= 199;
+             end;
+          if combobox2.ItemIndex = 2 then
+              begin
+                a:= 200; b:= 1000;
+          end;
+          if combobox2.ItemIndex = -1 then
+            messagedlg('seleccione un rango!!!',mtinformation,[mbok],0)
+          else
+             buscar(a,b);
+        end;
+end;
+
+procedure TForm7.BitBtn2Click(Sender: TObject);
+begin
+     form3.ADOLIBRO.Close;
+     form3.ADOLIBRO.Filtered:= false;
+     form3.ADOLIBRO.Open;
+     form7.DBgrid1.refresh;
+end;
+
+procedure TForm7.ComboBox1Click(Sender: TObject);
+begin
+    if ((combobox1.ItemIndex = 0) or (combobox1.ItemIndex = 1) or (combobox1.ItemIndex = 2)) then
+        bitbtn1.Enabled:= true;
+    if (combobox1.ItemIndex = 0) or (combobox1.ItemIndex = 1) then
+       begin
+         edit3.Visible:= true;
+         combobox2.Visible:= false;
+         form3.ADOLIBRO.Close;
+         form3.ADOLIBRO.Filtered:= false;
+         form3.ADOLIBRO.Open;
+         form7.DBgrid1.refresh;
+       end;
+    if combobox1.ItemIndex = 2 then
+    begin
+      edit3.Visible:= false;
+      combobox2.Visible:= true;
+    end;
+end;
+
+procedure TForm7.Label5Click(Sender: TObject);
+begin
+form1.Visible:= true;
+form7.close;
+form1.edit1.Text:='';
+form1.edit2.Text:='';
+
+end;
+
+end.

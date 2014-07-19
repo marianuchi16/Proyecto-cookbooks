@@ -1,0 +1,251 @@
+object Form8: TForm8
+  Left = 356
+  Top = 103
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Autores'
+  ClientHeight = 557
+  ClientWidth = 782
+  Color = 14134444
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -19
+  Font.Name = 'Times New Roman'
+  Font.Style = [fsBold]
+  OldCreateOrder = False
+  Position = poDesigned
+  PixelsPerInch = 96
+  TextHeight = 22
+  object Label1: TLabel
+    Left = 24
+    Top = 406
+    Width = 71
+    Height = 22
+    Caption = 'Nombre:'
+    Visible = False
+  end
+  object Label2: TLabel
+    Left = 24
+    Top = 459
+    Width = 72
+    Height = 22
+    Caption = 'Apellido:'
+    Visible = False
+  end
+  object Label18: TLabel
+    Left = 347
+    Top = 464
+    Width = 10
+    Height = 22
+    Caption = '*'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label17: TLabel
+    Left = 347
+    Top = 393
+    Width = 10
+    Height = 22
+    Caption = '*'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label12: TLabel
+    Left = 363
+    Top = 503
+    Width = 165
+    Height = 22
+    Caption = '* Datos obligatorios'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label3: TLabel
+    Left = 24
+    Top = 33
+    Width = 81
+    Height = 22
+    AutoSize = False
+    Caption = 'Buscar:'
+  end
+  object DBGrid1: TDBGrid
+    Left = 8
+    Top = 80
+    Width = 729
+    Height = 250
+    DataSource = Form3.DSAUTOR
+    Options = [dgTitles, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleHotTrack]
+    TabOrder = 0
+    TitleFont.Charset = ANSI_CHARSET
+    TitleFont.Color = clBlack
+    TitleFont.Height = -19
+    TitleFont.Name = 'Times New Roman'
+    TitleFont.Style = [fsBold]
+    OnCellClick = DBGrid1CellClick
+    OnTitleClick = DBGrid1TitleClick
+    Columns = <
+      item
+        Color = 14134444
+        Expanded = False
+        FieldName = 'Nombre'
+        Width = 348
+        Visible = True
+      end
+      item
+        Color = 14134444
+        Expanded = False
+        FieldName = 'Apellido'
+        Width = 503
+        Visible = True
+      end>
+  end
+  object Button1: TButton
+    Left = 8
+    Top = 336
+    Width = 185
+    Height = 30
+    Caption = 'Agregar'
+    TabOrder = 1
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 216
+    Top = 336
+    Width = 161
+    Height = 30
+    Caption = 'Modificar'
+    Enabled = False
+    TabOrder = 2
+    OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 399
+    Top = 336
+    Width = 154
+    Height = 30
+    Caption = 'Eliminar'
+    Enabled = False
+    TabOrder = 3
+    OnClick = Button3Click
+  end
+  object Edit1: TEdit
+    Left = 102
+    Top = 390
+    Width = 239
+    Height = 30
+    CharCase = ecUpperCase
+    TabOrder = 4
+    Visible = False
+    OnKeyPress = Edit1KeyPress
+  end
+  object Edit2: TEdit
+    Left = 102
+    Top = 456
+    Width = 239
+    Height = 30
+    CharCase = ecUpperCase
+    TabOrder = 5
+    Visible = False
+    OnKeyPress = Edit2KeyPress
+  end
+  object Button4: TButton
+    Left = 179
+    Top = 492
+    Width = 153
+    Height = 33
+    Caption = 'Aceptar'
+    TabOrder = 6
+    Visible = False
+    OnClick = Button4Click
+  end
+  object Button5: TButton
+    Left = 8
+    Top = 492
+    Width = 165
+    Height = 33
+    Caption = 'Cancelar'
+    TabOrder = 7
+    Visible = False
+    OnClick = Button5Click
+  end
+  object Edit3: TEdit
+    Left = 111
+    Top = 25
+    Width = 228
+    Height = 30
+    CharCase = ecUpperCase
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clSilver
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 8
+    Text = 'INGRESE AUTOR'
+    OnChange = Edit3Change
+    OnClick = Edit3Click
+    OnKeyPress = Edit3KeyPress
+  end
+  object Button7: TButton
+    Left = 379
+    Top = 23
+    Width = 129
+    Height = 30
+    Caption = 'Buscar'
+    TabOrder = 9
+    OnClick = Button7Click
+  end
+  object Button8: TButton
+    Left = 571
+    Top = 22
+    Width = 185
+    Height = 33
+    Caption = 'Ver lista completa'
+    TabOrder = 10
+    OnClick = Button8Click
+  end
+  object DBGrid2: TDBGrid
+    Left = 8
+    Top = 80
+    Width = 729
+    Height = 250
+    DataSource = Form3.DataSource2
+    TabOrder = 11
+    TitleFont.Charset = ANSI_CHARSET
+    TitleFont.Color = clBlack
+    TitleFont.Height = -19
+    TitleFont.Name = 'Times New Roman'
+    TitleFont.Style = [fsBold]
+    Visible = False
+    OnCellClick = DBGrid2CellClick
+    Columns = <
+      item
+        Color = 14134444
+        Expanded = False
+        FieldName = 'Nombre'
+        Width = 355
+        Visible = True
+      end
+      item
+        Color = 14134444
+        Expanded = False
+        FieldName = 'Apellido'
+        Width = 354
+        Visible = True
+      end>
+  end
+end

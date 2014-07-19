@@ -1,0 +1,59 @@
+object Form2: TForm2
+  Left = 455
+  Top = 162
+  BorderStyle = bsToolWindow
+  Caption = 'Acerca de'
+  ClientHeight = 353
+  ClientWidth = 500
+  Color = clWhite
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -19
+  Font.Name = 'Times New Roman'
+  Font.Style = [fsBold]
+  OldCreateOrder = False
+  Position = poDesigned
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 22
+  object Memo1: TMemo
+    Left = 8
+    Top = 8
+    Width = 481
+    Height = 332
+    TabStop = False
+    Color = 16762093
+    Lines.Strings = (
+      'Cookbook es una p'#225'gina de venta de libros de cocina.'
+      'Poseemos libros tanto en lengua espa'#241'ola como de otros '
+      'idiomas'
+      'Nuestro objetivo es satisfacer las necesidades de los '
+      'clientes de'
+      'la comunidad de cocina a trav'#233's de la m'#225'xima '
+      'variedad de productos, precios competitivos y el mejor '
+      'nivel de servicio del mercado.')
+    ParentShowHint = False
+    ReadOnly = True
+    ShowHint = False
+    TabOrder = 0
+    Visible = False
+    WordWrap = False
+  end
+  object Memo2: TMemo
+    Left = 8
+    Top = 8
+    Width = 481
+    Height = 332
+    TabStop = False
+    Color = 16762093
+    Lines.Strings = (
+      'Ponte en contacto con nosotros'
+      ''
+      'Email: contacto@cookbook.com.ar'
+      ''
+      'Ciudad Aut'#243'noma de Buenos Aires')
+    ReadOnly = True
+    TabOrder = 1
+    Visible = False
+  end
+end

@@ -1,0 +1,72 @@
+object Form7: TForm7
+  Left = 146
+  Top = 110
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Form7'
+  ClientHeight = 504
+  ClientWidth = 797
+  Color = 14134444
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -19
+  Font.Name = 'Times New Roman'
+  Font.Style = [fsBold]
+  OldCreateOrder = False
+  Position = poDesigned
+  PixelsPerInch = 96
+  TextHeight = 22
+  object DBGrid1: TDBGrid
+    Left = 8
+    Top = 40
+    Width = 633
+    Height = 313
+    DataSource = Form3.DSPEDIDO
+    TabOrder = 0
+    TitleFont.Charset = ANSI_CHARSET
+    TitleFont.Color = clBlack
+    TitleFont.Height = -19
+    TitleFont.Name = 'Times New Roman'
+    TitleFont.Style = [fsBold]
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'Fecha_pedido'
+        Title.Caption = 'Fecha Pedido'
+        Width = 124
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Total'
+        Title.Caption = 'Total      $'
+        Width = 95
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ISBN'
+        Width = 200
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Precio'
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Estado_pedido'
+        Title.Caption = 'Estado'
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Id_Cliente'
+        Width = 99
+        Visible = True
+      end>
+  end
+end

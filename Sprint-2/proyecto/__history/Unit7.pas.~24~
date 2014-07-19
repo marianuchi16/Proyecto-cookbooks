@@ -1,0 +1,37 @@
+unit Unit7;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, Grids, DBGrids, Buttons, jpeg;
+
+type
+  TForm7 = class(TForm)
+    DBGrid1: TDBGrid;
+    Button1: TButton;
+    procedure DBGrid1CellClick(Column: TColumn);
+  private
+     usu: string;
+    usuario: integer;
+    a,b: integer;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form7: TForm7;
+
+implementation
+
+uses Unit8, Unit1, Unit9, Unit3, Unit12;
+
+{$R *.dfm}
+
+procedure TForm7.DBGrid1CellClick(Column: TColumn);
+begin
+  Button1.Enabled:= true;
+end;
+
+end.

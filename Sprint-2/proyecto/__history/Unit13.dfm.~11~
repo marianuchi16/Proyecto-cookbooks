@@ -1,0 +1,41 @@
+object Form13: TForm13
+  Left = 342
+  Top = 110
+  BorderIcons = [biSystemMenu]
+  Caption = 'Lista de Autores'
+  ClientHeight = 82
+  ClientWidth = 287
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -19
+  Font.Name = 'Times New Roman'
+  Font.Style = [fsBold]
+  OldCreateOrder = False
+  Position = poDesigned
+  PixelsPerInch = 96
+  TextHeight = 22
+  object Label1: TLabel
+    Left = 8
+    Top = 8
+    Width = 273
+    Height = 33
+    Caption = 'Esta seguro de eliminar el libro?'
+  end
+  object Button1: TButton
+    Left = 24
+    Top = 47
+    Width = 75
+    Height = 25
+    Caption = 'Si'
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 144
+    Top = 47
+    Width = 75
+    Height = 25
+    Caption = 'No'
+    TabOrder = 1
+  end
+end

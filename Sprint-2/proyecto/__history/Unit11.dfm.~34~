@@ -1,0 +1,32 @@
+object Form11: TForm11
+  Left = 293
+  Top = 110
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'INFORME'
+  ClientHeight = 495
+  ClientWidth = 835
+  Color = 14134444
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -19
+  Font.Name = 'Times New Roman'
+  Font.Style = [fsBold]
+  OldCreateOrder = False
+  Position = poDesigned
+  Scaled = False
+  PixelsPerInch = 96
+  TextHeight = 22
+  object DBGrid1: TDBGrid
+    Left = 24
+    Top = 8
+    Width = 793
+    Height = 409
+    TabOrder = 0
+    TitleFont.Charset = ANSI_CHARSET
+    TitleFont.Color = clBlack
+    TitleFont.Height = -19
+    TitleFont.Name = 'Times New Roman'
+    TitleFont.Style = [fsBold]
+  end
+end
